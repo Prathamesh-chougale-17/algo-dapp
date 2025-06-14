@@ -16,12 +16,13 @@ artifacts = 'smart_contracts/artifacts'
 
 [project.deploy]
 command = "poetry run python -m smart_contracts deploy"
-environment_secrets = [
-  "DEPLOYER_MNEMONIC",
-  "DISPENSER_MNEMONIC",
-]
+environment_secrets = []
 
 [project.deploy.localnet]
+environment_secrets = []
+
+[project.deploy.testnet]
+# CI-friendly: will skip if credentials not available
 environment_secrets = []
 
 [project.run]
