@@ -8,6 +8,7 @@ import logging
 import os
 import sys
 from pathlib import Path
+
 from dotenv import load_dotenv
 
 logging.basicConfig(level=logging.INFO)
@@ -18,7 +19,7 @@ def load_environment(network: str) -> None:
     """Load the correct environment variables file based on network"""
     env_file = f".env.{network}"
     env_path = Path(__file__).parent / env_file
-    
+
     if env_path.exists():
         logger.info(f"🔧 Loading environment from {env_file}")
         load_dotenv(dotenv_path=env_path, override=True)
