@@ -20,6 +20,26 @@ const ConnectWallet = ({ openModal, closeModal }: ConnectWalletInterface) => {
           {activeAddress && (
             <>
               <Account />
+              <button
+                className="btn btn-warning btn-sm m-2"
+                data-test-id="logout"
+                onClick={async () => {
+                  if (wallets) {
+                    const activeWallet = wallets.find((w) => w.isActive)
+                    if (activeWallet) {
+                      await activeWallet.disconnect()
+                    } else {
+                      // Required for logout/cleanup of inactive providers
+                      // For instance, when you login to localnet wallet and switch network
+                      // to testnet/mainnet or vice verse.
+                      localStorage.removeItem('@txnlab/use-wallet:v3')
+                      window.location.reload()
+                    }
+                  }
+                }}
+              >
+                Logout
+              </button>
               <div className="divider" />
             </>
           )}
@@ -56,28 +76,6 @@ const ConnectWallet = ({ openModal, closeModal }: ConnectWalletInterface) => {
           >
             Close
           </button>
-          {activeAddress && (
-            <button
-              className="btn btn-warning"
-              data-test-id="logout"
-              onClick={async () => {
-                if (wallets) {
-                  const activeWallet = wallets.find((w) => w.isActive)
-                  if (activeWallet) {
-                    await activeWallet.disconnect()
-                  } else {
-                    // Required for logout/cleanup of inactive providers
-                    // For instance, when you login to localnet wallet and switch network
-                    // to testnet/mainnet or vice verse.
-                    localStorage.removeItem('@txnlab/use-wallet:v3')
-                    window.location.reload()
-                  }
-                }
-              }}
-            >
-              Logout
-            </button>
-          )}
         </div>
       </form>
     </dialog>

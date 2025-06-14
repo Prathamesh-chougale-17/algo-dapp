@@ -1,0 +1,5276 @@
+{
+  "version": 3,
+  "sources": [
+    "contract.py"
+  ],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAKA;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;AAAA;;AAyQK;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AARA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAVA;;AAAA;AAAA;AAAA;;AAAA;AAvPL;;;AAAA;AAAA;;AAuPK;;;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AA3CA;;AAAA;AAAA;AAAA;;AAAA;AA5ML;;;AAAA;AAAA;;AAAA;;;AAAA;AAAA;;AAAA;;;AAAA;AA4MK;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAzCA;;AAAA;AAAA;AAAA;;AAAA;AAnKL;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;AAAA;;AAmKK;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AA5DA;;AAAA;AAAA;AAAA;;AAAA;AAvGL;;;AAAA;AAAA;;AAAA;;;AAAA;;;AAAA;;;AAAA;AAAA;;AAuGK;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AA7CA;;AAAA;AAAA;AAAA;;AAAA;AA1DL;;;AAAA;AAAA;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;;;AAAA;AAAA;;;AAAA;AAAA;;;AAAA;;;AA0DK;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AA5BA;AAAA;;AAAA;AAAA;AAAA;AAAA;AAAA;;AAAA;AA9BL;;;AAAA;;;AA8BK;;;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAVA;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAGG;;AAA2B;AAA3B;AACA;;AAAiC;AAAjC;AACA;;AAA4B;AAA5B;AACA;;AAAmC;AAAnC;AACA;;AAAyB;;AAAzB;AACO;;;;;;;;;;;;;;;;;;;;;;;;AAAP;AAER;;;AAIW;;AAAqB;AAArB;AAAX;;;AAE8B;;AAAlB;;AAAgC;AAAhC;AACuB;;AAAvB;;AAAqC;AAArC;AAC2B;;AAA3B;AAAyC;AAAzC;AACmB;;AAAnB;AAAiC;AAAjC;AACO;;;;;;;;;;;;;;;;;;;;;;;;AAAP;AAIkB;;AAAnB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAX;;;AACmB;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAP;AAGc;;AAAlB;;AAAgC;AAAhC;AACuB;;AAAvB;;AAAqC;AAArC;AAC2B;;AAA3B;AAAyC;AAAzC;AACmB;;AAAnB;AAAiC;;;AAAjC;AAEA;AAAA;;AAAA;AAAA;AAA4B;AAA5B;AAAA;;AAAA;AAAA;AAEA;;AAAA;AACO;;;;;;;;;;;;;;;;;;;;;;;AAAP;AAER;;;AAYe;;AAAc;AAAA;;AAAA;AAAA;AAAd;AAAP;AACO;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAP;AAIW;AAUH;;AAJI;;AACA;;AAKH;;AAAA;;AAAA;;;;;;;;;;;AAPU;;;AADN;;;AADH;;;AAJO;;;;;;;;;;;;;;;AACN;;;;;AAAA;;;AAgBX;AAIQ;;;;;;AAFS;;;;;;;AAFjB;;;;;AAAA;AAOA;AAAA;;AAAA;AAAA;AAAkC;AAAlC;AAAA;;AAAA;AAAA;AAEI;;;;;;;;;;;;;;AAAJ;AACA;AAER;;;AAWkC;;AAAnB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAP;AAGA;;AAA6B;;AAA7B;AACO;AAAP;AAGO;;AAAwB;;AAAxB;AAAP;AAGoD;;AAA3B;AAAA;AAAA;AAAA;AACO;AAAA;;AAAA;AAAA;AAAzB;;AAAA;AAAP;AAGA;;AAAyB;;AAAzB;AACO;AAAP;AAK0B;;;;;;;;;;;;;;;;;AAA1B;;AAAgB;AACK;AAUb;;AAJI;;AACA;;;;;;;;;;;;;;AAFO;;;AADN;;;AADH;;;AADI;;;;;;;;;;;;AAJG;;;;;;;;;;;;;;;;;;AAEI;;;;;AAAA;;;AAerB;AAIQ;;;;;;AAFS;;;;;;;AAFjB;;;;;AAAA;AAQyC;AAAyB;AAAzB;AAAd;;AAA3B;AAAA;;AAAA;AAEI;;;;;;;;;;;;;;;;AAAJ;AACA;AAER;;;AAWkC;;AAAnB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAP;AACO;;AAAuB;;AAAvB;AAAP;AAI0B;;;;;;;;;;;AAA1B;;AAAgB;AAED;AAQP;;AAFI;;AACA;;;;;;;;;AAFO;;;AADN;;;AADH;;;AADI;;;;;;;;;;;;AALO;;;;;;;;;;;;;;;;;AAGN;;;;;AAAA;;;AAaf;AAIQ;;;;;;AAFS;;;;;;;AAFjB;;;;;AAAA;AAOI;;;;;;;;;;;;;;;;;;;;;;AAAJ;AACA;AAER;;;AAWkC;;AAAnB;AAAA;AAAA;AAAA;AAAA;AAAA;AAAP;AAQc;AAON;;AADI;;AAEH;;;;;;AAHU;;;AADN;;;AADH;;;AADI;;;;;;;;;;;;AAJM;;;;AAEN;;;;;AAAA;;;AAYd;AAIQ;;AAHW;;;;;;AACF;;;;;AAFjB;;;;;AAAA;AASI;;;;;;;;;;;;;;AAAJ;AACA;AAER;;;AAGe;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAP;AAEI;;AAAA;AAAA;;AAAA;AAAA;AACA;;AAAA;AAAA;;AAAA;AAAA;AACA;;AAAA;AAAA;AAAA;AAAA;AAHJ;AASO;;AAAc;AAAA;;AAAA;AAAA;AAAd;AAAP;AACA;AAAA;;AAAA;AAAA;AAA6B;AAA7B;AAAA;;AAAA;;AAAA;AACI;;;;;;;;;;;;;;;;;AAAJ;AACA;AAMI;AAAA;;AAAA;AAAA;AACA;AAAA;;AAAA;AAAA;AACA;AAAA;;AAAA;AAAA;AAHJ",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "smart_contracts.algorealm.contract.AlgoRealmGameManager.__algopy_entrypoint_with_init",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "intcblock 0 1 3 4"
+    },
+    "7": {
+      "op": "bytecblock 0x151f7c75 \"is_registered\" 0x00 \"player_recovery_count\" \"total_players\" \"total_items_created\" \"current_season\" \"game_master\" \"player_level\" \"player_experience\" \"max_recovery_per_item\" 0x435241465445445f4954454d"
+    },
+    "179": {
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#2"
+      ],
+      "stack_out": [
+        "tmp%0#2"
+      ]
+    },
+    "181": {
+      "op": "bz main_after_if_else@14",
+      "stack_out": []
+    },
+    "184": {
+      "op": "pushbytess 0xb35aac3b 0x843d18d5 0x2a618480 0xebe93f8b 0xa0d134d0 0x8bcde396 0x45d65ecb 0x3b52751f 0x479a7f97 // method \"initialize_game()string\", method \"register_player(string)string\", method \"create_game_item(account,string,string,string,uint64,uint64,string)uint64\", method \"recover_lost_item(asset,byte[],account)uint64\", method \"seasonal_event_reissue(string,byte[],account)uint64\", method \"craft_items(asset,asset,uint64)uint64\", method \"get_player_stats(account)(uint64,uint64,uint64)\", method \"advance_season()uint64\", method \"get_game_info()(uint64,uint64,uint64)\"",
+      "defined_out": [
+        "Method(advance_season()uint64)",
+        "Method(craft_items(asset,asset,uint64)uint64)",
+        "Method(create_game_item(account,string,string,string,uint64,uint64,string)uint64)",
+        "Method(get_game_info()(uint64,uint64,uint64))",
+        "Method(get_player_stats(account)(uint64,uint64,uint64))",
+        "Method(initialize_game()string)",
+        "Method(recover_lost_item(asset,byte[],account)uint64)",
+        "Method(register_player(string)string)",
+        "Method(seasonal_event_reissue(string,byte[],account)uint64)"
+      ],
+      "stack_out": [
+        "Method(initialize_game()string)",
+        "Method(register_player(string)string)",
+        "Method(create_game_item(account,string,string,string,uint64,uint64,string)uint64)",
+        "Method(recover_lost_item(asset,byte[],account)uint64)",
+        "Method(seasonal_event_reissue(string,byte[],account)uint64)",
+        "Method(craft_items(asset,asset,uint64)uint64)",
+        "Method(get_player_stats(account)(uint64,uint64,uint64))",
+        "Method(advance_season()uint64)",
+        "Method(get_game_info()(uint64,uint64,uint64))"
+      ]
+    },
+    "231": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(advance_season()uint64)",
+        "Method(craft_items(asset,asset,uint64)uint64)",
+        "Method(create_game_item(account,string,string,string,uint64,uint64,string)uint64)",
+        "Method(get_game_info()(uint64,uint64,uint64))",
+        "Method(get_player_stats(account)(uint64,uint64,uint64))",
+        "Method(initialize_game()string)",
+        "Method(recover_lost_item(asset,byte[],account)uint64)",
+        "Method(register_player(string)string)",
+        "Method(seasonal_event_reissue(string,byte[],account)uint64)",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "Method(initialize_game()string)",
+        "Method(register_player(string)string)",
+        "Method(create_game_item(account,string,string,string,uint64,uint64,string)uint64)",
+        "Method(recover_lost_item(asset,byte[],account)uint64)",
+        "Method(seasonal_event_reissue(string,byte[],account)uint64)",
+        "Method(craft_items(asset,asset,uint64)uint64)",
+        "Method(get_player_stats(account)(uint64,uint64,uint64))",
+        "Method(advance_season()uint64)",
+        "Method(get_game_info()(uint64,uint64,uint64))",
+        "tmp%2#0"
+      ]
+    },
+    "234": {
+      "op": "match main_initialize_game_route@5 main_register_player_route@6 main_create_game_item_route@7 main_recover_lost_item_route@8 main_seasonal_event_reissue_route@9 main_craft_items_route@10 main_get_player_stats_route@11 main_advance_season_route@12 main_get_game_info_route@13",
+      "stack_out": []
+    },
+    "254": {
+      "block": "main_after_if_else@14",
+      "stack_in": [],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "255": {
+      "op": "return",
+      "stack_out": []
+    },
+    "256": {
+      "block": "main_get_game_info_route@13",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%77#0"
+      ],
+      "stack_out": [
+        "tmp%77#0"
+      ]
+    },
+    "258": {
+      "op": "!",
+      "defined_out": [
+        "tmp%78#0"
+      ],
+      "stack_out": [
+        "tmp%78#0"
+      ]
+    },
+    "259": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "260": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%79#0"
+      ],
+      "stack_out": [
+        "tmp%79#0"
+      ]
+    },
+    "262": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "263": {
+      "callsub": "smart_contracts.algorealm.contract.AlgoRealmGameManager.get_game_info",
+      "op": "callsub get_game_info",
+      "defined_out": [
+        "elements_to_encode%3#0",
+        "elements_to_encode%4#0",
+        "elements_to_encode%5#0"
+      ],
+      "stack_out": [
+        "elements_to_encode%3#0",
+        "elements_to_encode%4#0",
+        "elements_to_encode%5#0"
+      ]
+    },
+    "266": {
+      "op": "uncover 2",
+      "stack_out": [
+        "elements_to_encode%4#0",
+        "elements_to_encode%5#0",
+        "elements_to_encode%3#0"
+      ]
+    },
+    "268": {
+      "op": "itob",
+      "defined_out": [
+        "elements_to_encode%4#0",
+        "elements_to_encode%5#0",
+        "val_as_bytes%8#0"
+      ],
+      "stack_out": [
+        "elements_to_encode%4#0",
+        "elements_to_encode%5#0",
+        "val_as_bytes%8#0"
+      ]
+    },
+    "269": {
+      "op": "uncover 2",
+      "stack_out": [
+        "elements_to_encode%5#0",
+        "val_as_bytes%8#0",
+        "elements_to_encode%4#0"
+      ]
+    },
+    "271": {
+      "op": "itob",
+      "defined_out": [
+        "elements_to_encode%5#0",
+        "val_as_bytes%8#0",
+        "val_as_bytes%9#0"
+      ],
+      "stack_out": [
+        "elements_to_encode%5#0",
+        "val_as_bytes%8#0",
+        "val_as_bytes%9#0"
+      ]
+    },
+    "272": {
+      "op": "uncover 2",
+      "stack_out": [
+        "val_as_bytes%8#0",
+        "val_as_bytes%9#0",
+        "elements_to_encode%5#0"
+      ]
+    },
+    "274": {
+      "op": "itob",
+      "defined_out": [
+        "val_as_bytes%10#0",
+        "val_as_bytes%8#0",
+        "val_as_bytes%9#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%8#0",
+        "val_as_bytes%9#0",
+        "val_as_bytes%10#0"
+      ]
+    },
+    "275": {
+      "op": "cover 2",
+      "stack_out": [
+        "val_as_bytes%10#0",
+        "val_as_bytes%8#0",
+        "val_as_bytes%9#0"
+      ]
+    },
+    "277": {
+      "op": "concat",
+      "defined_out": [
+        "encoded_tuple_buffer%6#0",
+        "val_as_bytes%10#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%10#0",
+        "encoded_tuple_buffer%6#0"
+      ]
+    },
+    "278": {
+      "op": "swap",
+      "stack_out": [
+        "encoded_tuple_buffer%6#0",
+        "val_as_bytes%10#0"
+      ]
+    },
+    "279": {
+      "op": "concat",
+      "defined_out": [
+        "encoded_tuple_buffer%7#0"
+      ],
+      "stack_out": [
+        "encoded_tuple_buffer%7#0"
+      ]
+    },
+    "280": {
+      "op": "bytec_0 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "encoded_tuple_buffer%7#0"
+      ],
+      "stack_out": [
+        "encoded_tuple_buffer%7#0",
+        "0x151f7c75"
+      ]
+    },
+    "281": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "encoded_tuple_buffer%7#0"
+      ]
+    },
+    "282": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%81#0"
+      ],
+      "stack_out": [
+        "tmp%81#0"
+      ]
+    },
+    "283": {
+      "op": "log",
+      "stack_out": []
+    },
+    "284": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "285": {
+      "op": "return",
+      "stack_out": []
+    },
+    "286": {
+      "block": "main_advance_season_route@12",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%72#0"
+      ],
+      "stack_out": [
+        "tmp%72#0"
+      ]
+    },
+    "288": {
+      "op": "!",
+      "defined_out": [
+        "tmp%73#0"
+      ],
+      "stack_out": [
+        "tmp%73#0"
+      ]
+    },
+    "289": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "290": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%74#0"
+      ],
+      "stack_out": [
+        "tmp%74#0"
+      ]
+    },
+    "292": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "293": {
+      "callsub": "smart_contracts.algorealm.contract.AlgoRealmGameManager.advance_season",
+      "op": "callsub advance_season",
+      "defined_out": [
+        "to_encode%6#0"
+      ],
+      "stack_out": [
+        "to_encode%6#0"
+      ]
+    },
+    "296": {
+      "op": "itob",
+      "defined_out": [
+        "val_as_bytes%7#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%7#0"
+      ]
+    },
+    "297": {
+      "op": "bytec_0 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "val_as_bytes%7#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%7#0",
+        "0x151f7c75"
+      ]
+    },
+    "298": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "val_as_bytes%7#0"
+      ]
+    },
+    "299": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%76#0"
+      ],
+      "stack_out": [
+        "tmp%76#0"
+      ]
+    },
+    "300": {
+      "op": "log",
+      "stack_out": []
+    },
+    "301": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "302": {
+      "op": "return",
+      "stack_out": []
+    },
+    "303": {
+      "block": "main_get_player_stats_route@11",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%65#0"
+      ],
+      "stack_out": [
+        "tmp%65#0"
+      ]
+    },
+    "305": {
+      "op": "!",
+      "defined_out": [
+        "tmp%66#0"
+      ],
+      "stack_out": [
+        "tmp%66#0"
+      ]
+    },
+    "306": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "307": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%67#0"
+      ],
+      "stack_out": [
+        "tmp%67#0"
+      ]
+    },
+    "309": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "310": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%6#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%6#0"
+      ]
+    },
+    "313": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%69#0"
+      ],
+      "stack_out": [
+        "tmp%69#0"
+      ]
+    },
+    "314": {
+      "op": "txnas Accounts",
+      "defined_out": [
+        "tmp%70#0"
+      ],
+      "stack_out": [
+        "tmp%70#0"
+      ]
+    },
+    "316": {
+      "callsub": "smart_contracts.algorealm.contract.AlgoRealmGameManager.get_player_stats",
+      "op": "callsub get_player_stats",
+      "defined_out": [
+        "elements_to_encode%0#0",
+        "elements_to_encode%1#0",
+        "elements_to_encode%2#0"
+      ],
+      "stack_out": [
+        "elements_to_encode%0#0",
+        "elements_to_encode%1#0",
+        "elements_to_encode%2#0"
+      ]
+    },
+    "319": {
+      "op": "uncover 2",
+      "stack_out": [
+        "elements_to_encode%1#0",
+        "elements_to_encode%2#0",
+        "elements_to_encode%0#0"
+      ]
+    },
+    "321": {
+      "op": "itob",
+      "defined_out": [
+        "elements_to_encode%1#0",
+        "elements_to_encode%2#0",
+        "val_as_bytes%4#0"
+      ],
+      "stack_out": [
+        "elements_to_encode%1#0",
+        "elements_to_encode%2#0",
+        "val_as_bytes%4#0"
+      ]
+    },
+    "322": {
+      "op": "uncover 2",
+      "stack_out": [
+        "elements_to_encode%2#0",
+        "val_as_bytes%4#0",
+        "elements_to_encode%1#0"
+      ]
+    },
+    "324": {
+      "op": "itob",
+      "defined_out": [
+        "elements_to_encode%2#0",
+        "val_as_bytes%4#0",
+        "val_as_bytes%5#0"
+      ],
+      "stack_out": [
+        "elements_to_encode%2#0",
+        "val_as_bytes%4#0",
+        "val_as_bytes%5#0"
+      ]
+    },
+    "325": {
+      "op": "uncover 2",
+      "stack_out": [
+        "val_as_bytes%4#0",
+        "val_as_bytes%5#0",
+        "elements_to_encode%2#0"
+      ]
+    },
+    "327": {
+      "op": "itob",
+      "defined_out": [
+        "val_as_bytes%4#0",
+        "val_as_bytes%5#0",
+        "val_as_bytes%6#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%4#0",
+        "val_as_bytes%5#0",
+        "val_as_bytes%6#0"
+      ]
+    },
+    "328": {
+      "op": "cover 2",
+      "stack_out": [
+        "val_as_bytes%6#0",
+        "val_as_bytes%4#0",
+        "val_as_bytes%5#0"
+      ]
+    },
+    "330": {
+      "op": "concat",
+      "defined_out": [
+        "encoded_tuple_buffer%2#0",
+        "val_as_bytes%6#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%6#0",
+        "encoded_tuple_buffer%2#0"
+      ]
+    },
+    "331": {
+      "op": "swap",
+      "stack_out": [
+        "encoded_tuple_buffer%2#0",
+        "val_as_bytes%6#0"
+      ]
+    },
+    "332": {
+      "op": "concat",
+      "defined_out": [
+        "encoded_tuple_buffer%3#0"
+      ],
+      "stack_out": [
+        "encoded_tuple_buffer%3#0"
+      ]
+    },
+    "333": {
+      "op": "bytec_0 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "encoded_tuple_buffer%3#0"
+      ],
+      "stack_out": [
+        "encoded_tuple_buffer%3#0",
+        "0x151f7c75"
+      ]
+    },
+    "334": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "encoded_tuple_buffer%3#0"
+      ]
+    },
+    "335": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%71#0"
+      ],
+      "stack_out": [
+        "tmp%71#0"
+      ]
+    },
+    "336": {
+      "op": "log",
+      "stack_out": []
+    },
+    "337": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "338": {
+      "op": "return",
+      "stack_out": []
+    },
+    "339": {
+      "block": "main_craft_items_route@10",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%55#0"
+      ],
+      "stack_out": [
+        "tmp%55#0"
+      ]
+    },
+    "341": {
+      "op": "!",
+      "defined_out": [
+        "tmp%56#0"
+      ],
+      "stack_out": [
+        "tmp%56#0"
+      ]
+    },
+    "342": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "343": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%57#0"
+      ],
+      "stack_out": [
+        "tmp%57#0"
+      ]
+    },
+    "345": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "346": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%4#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%4#0"
+      ]
+    },
+    "349": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%59#0"
+      ],
+      "stack_out": [
+        "tmp%59#0"
+      ]
+    },
+    "350": {
+      "op": "txnas Assets",
+      "defined_out": [
+        "tmp%60#0"
+      ],
+      "stack_out": [
+        "tmp%60#0"
+      ]
+    },
+    "352": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "reinterpret_bytes[1]%5#0",
+        "tmp%60#0"
+      ],
+      "stack_out": [
+        "tmp%60#0",
+        "reinterpret_bytes[1]%5#0"
+      ]
+    },
+    "355": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%60#0",
+        "tmp%61#0"
+      ],
+      "stack_out": [
+        "tmp%60#0",
+        "tmp%61#0"
+      ]
+    },
+    "356": {
+      "op": "txnas Assets",
+      "defined_out": [
+        "tmp%60#0",
+        "tmp%62#0"
+      ],
+      "stack_out": [
+        "tmp%60#0",
+        "tmp%62#0"
+      ]
+    },
+    "358": {
+      "op": "txna ApplicationArgs 3",
+      "defined_out": [
+        "reinterpret_bytes[8]%2#0",
+        "tmp%60#0",
+        "tmp%62#0"
+      ],
+      "stack_out": [
+        "tmp%60#0",
+        "tmp%62#0",
+        "reinterpret_bytes[8]%2#0"
+      ]
+    },
+    "361": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%60#0",
+        "tmp%62#0",
+        "tmp%63#0"
+      ],
+      "stack_out": [
+        "tmp%60#0",
+        "tmp%62#0",
+        "tmp%63#0"
+      ]
+    },
+    "362": {
+      "callsub": "smart_contracts.algorealm.contract.AlgoRealmGameManager.craft_items",
+      "op": "callsub craft_items",
+      "defined_out": [
+        "to_encode%5#0"
+      ],
+      "stack_out": [
+        "to_encode%5#0"
+      ]
+    },
+    "365": {
+      "op": "itob",
+      "defined_out": [
+        "val_as_bytes%3#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%3#0"
+      ]
+    },
+    "366": {
+      "op": "bytec_0 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "val_as_bytes%3#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%3#0",
+        "0x151f7c75"
+      ]
+    },
+    "367": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "val_as_bytes%3#0"
+      ]
+    },
+    "368": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%64#0"
+      ],
+      "stack_out": [
+        "tmp%64#0"
+      ]
+    },
+    "369": {
+      "op": "log",
+      "stack_out": []
+    },
+    "370": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "371": {
+      "op": "return",
+      "stack_out": []
+    },
+    "372": {
+      "block": "main_seasonal_event_reissue_route@9",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%44#0"
+      ],
+      "stack_out": [
+        "tmp%44#0"
+      ]
+    },
+    "374": {
+      "op": "!",
+      "defined_out": [
+        "tmp%45#0"
+      ],
+      "stack_out": [
+        "tmp%45#0"
+      ]
+    },
+    "375": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "376": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%46#0"
+      ],
+      "stack_out": [
+        "tmp%46#0"
+      ]
+    },
+    "378": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "379": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "tmp%48#0"
+      ],
+      "stack_out": [
+        "tmp%48#0"
+      ]
+    },
+    "382": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%49#0"
+      ],
+      "stack_out": [
+        "tmp%49#0"
+      ]
+    },
+    "385": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "tmp%49#0",
+        "tmp%50#0"
+      ],
+      "stack_out": [
+        "tmp%49#0",
+        "tmp%50#0"
+      ]
+    },
+    "388": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%49#0",
+        "tmp%51#0"
+      ],
+      "stack_out": [
+        "tmp%49#0",
+        "tmp%51#0"
+      ]
+    },
+    "391": {
+      "op": "txna ApplicationArgs 3",
+      "defined_out": [
+        "reinterpret_bytes[1]%3#0",
+        "tmp%49#0",
+        "tmp%51#0"
+      ],
+      "stack_out": [
+        "tmp%49#0",
+        "tmp%51#0",
+        "reinterpret_bytes[1]%3#0"
+      ]
+    },
+    "394": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%49#0",
+        "tmp%51#0",
+        "tmp%52#0"
+      ],
+      "stack_out": [
+        "tmp%49#0",
+        "tmp%51#0",
+        "tmp%52#0"
+      ]
+    },
+    "395": {
+      "op": "txnas Accounts",
+      "defined_out": [
+        "tmp%49#0",
+        "tmp%51#0",
+        "tmp%53#0"
+      ],
+      "stack_out": [
+        "tmp%49#0",
+        "tmp%51#0",
+        "tmp%53#0"
+      ]
+    },
+    "397": {
+      "callsub": "smart_contracts.algorealm.contract.AlgoRealmGameManager.seasonal_event_reissue",
+      "op": "callsub seasonal_event_reissue",
+      "defined_out": [
+        "to_encode%4#0"
+      ],
+      "stack_out": [
+        "to_encode%4#0"
+      ]
+    },
+    "400": {
+      "op": "itob",
+      "defined_out": [
+        "val_as_bytes%2#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%2#0"
+      ]
+    },
+    "401": {
+      "op": "bytec_0 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "val_as_bytes%2#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%2#0",
+        "0x151f7c75"
+      ]
+    },
+    "402": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "val_as_bytes%2#0"
+      ]
+    },
+    "403": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%54#0"
+      ],
+      "stack_out": [
+        "tmp%54#0"
+      ]
+    },
+    "404": {
+      "op": "log",
+      "stack_out": []
+    },
+    "405": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "406": {
+      "op": "return",
+      "stack_out": []
+    },
+    "407": {
+      "block": "main_recover_lost_item_route@8",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%33#0"
+      ],
+      "stack_out": [
+        "tmp%33#0"
+      ]
+    },
+    "409": {
+      "op": "!",
+      "defined_out": [
+        "tmp%34#0"
+      ],
+      "stack_out": [
+        "tmp%34#0"
+      ]
+    },
+    "410": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "411": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%35#0"
+      ],
+      "stack_out": [
+        "tmp%35#0"
+      ]
+    },
+    "413": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "414": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%1#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%1#0"
+      ]
+    },
+    "417": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%37#0"
+      ],
+      "stack_out": [
+        "tmp%37#0"
+      ]
+    },
+    "418": {
+      "op": "txnas Assets",
+      "defined_out": [
+        "tmp%38#0"
+      ],
+      "stack_out": [
+        "tmp%38#0"
+      ]
+    },
+    "420": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "tmp%38#0",
+        "tmp%39#0"
+      ],
+      "stack_out": [
+        "tmp%38#0",
+        "tmp%39#0"
+      ]
+    },
+    "423": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%38#0",
+        "tmp%40#0"
+      ],
+      "stack_out": [
+        "tmp%38#0",
+        "tmp%40#0"
+      ]
+    },
+    "426": {
+      "op": "txna ApplicationArgs 3",
+      "defined_out": [
+        "reinterpret_bytes[1]%2#0",
+        "tmp%38#0",
+        "tmp%40#0"
+      ],
+      "stack_out": [
+        "tmp%38#0",
+        "tmp%40#0",
+        "reinterpret_bytes[1]%2#0"
+      ]
+    },
+    "429": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%38#0",
+        "tmp%40#0",
+        "tmp%41#0"
+      ],
+      "stack_out": [
+        "tmp%38#0",
+        "tmp%40#0",
+        "tmp%41#0"
+      ]
+    },
+    "430": {
+      "op": "txnas Accounts",
+      "defined_out": [
+        "tmp%38#0",
+        "tmp%40#0",
+        "tmp%42#0"
+      ],
+      "stack_out": [
+        "tmp%38#0",
+        "tmp%40#0",
+        "tmp%42#0"
+      ]
+    },
+    "432": {
+      "callsub": "smart_contracts.algorealm.contract.AlgoRealmGameManager.recover_lost_item",
+      "op": "callsub recover_lost_item",
+      "defined_out": [
+        "to_encode%3#0"
+      ],
+      "stack_out": [
+        "to_encode%3#0"
+      ]
+    },
+    "435": {
+      "op": "itob",
+      "defined_out": [
+        "val_as_bytes%1#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%1#0"
+      ]
+    },
+    "436": {
+      "op": "bytec_0 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "val_as_bytes%1#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%1#0",
+        "0x151f7c75"
+      ]
+    },
+    "437": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "val_as_bytes%1#0"
+      ]
+    },
+    "438": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%43#0"
+      ],
+      "stack_out": [
+        "tmp%43#0"
+      ]
+    },
+    "439": {
+      "op": "log",
+      "stack_out": []
+    },
+    "440": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "441": {
+      "op": "return",
+      "stack_out": []
+    },
+    "442": {
+      "block": "main_create_game_item_route@7",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%16#0"
+      ],
+      "stack_out": [
+        "tmp%16#0"
+      ]
+    },
+    "444": {
+      "op": "!",
+      "defined_out": [
+        "tmp%17#0"
+      ],
+      "stack_out": [
+        "tmp%17#0"
+      ]
+    },
+    "445": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "446": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%18#0"
+      ],
+      "stack_out": [
+        "tmp%18#0"
+      ]
+    },
+    "448": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "449": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%0#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%0#0"
+      ]
+    },
+    "452": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%20#0"
+      ],
+      "stack_out": [
+        "tmp%20#0"
+      ]
+    },
+    "453": {
+      "op": "txnas Accounts",
+      "defined_out": [
+        "tmp%21#0"
+      ],
+      "stack_out": [
+        "tmp%21#0"
+      ]
+    },
+    "455": {
+      "op": "txna ApplicationArgs 2",
+      "defined_out": [
+        "tmp%21#0",
+        "tmp%22#0"
+      ],
+      "stack_out": [
+        "tmp%21#0",
+        "tmp%22#0"
+      ]
+    },
+    "458": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%21#0",
+        "tmp%23#0"
+      ],
+      "stack_out": [
+        "tmp%21#0",
+        "tmp%23#0"
+      ]
+    },
+    "461": {
+      "op": "txna ApplicationArgs 3",
+      "defined_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%24#0"
+      ],
+      "stack_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%24#0"
+      ]
+    },
+    "464": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0"
+      ],
+      "stack_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0"
+      ]
+    },
+    "467": {
+      "op": "txna ApplicationArgs 4",
+      "defined_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%26#0"
+      ],
+      "stack_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%26#0"
+      ]
+    },
+    "470": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%27#0"
+      ],
+      "stack_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%27#0"
+      ]
+    },
+    "473": {
+      "op": "txna ApplicationArgs 5",
+      "defined_out": [
+        "reinterpret_bytes[8]%0#0",
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%27#0"
+      ],
+      "stack_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%27#0",
+        "reinterpret_bytes[8]%0#0"
+      ]
+    },
+    "476": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%27#0",
+        "tmp%28#0"
+      ],
+      "stack_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%27#0",
+        "tmp%28#0"
+      ]
+    },
+    "477": {
+      "op": "txna ApplicationArgs 6",
+      "defined_out": [
+        "reinterpret_bytes[8]%1#0",
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%27#0",
+        "tmp%28#0"
+      ],
+      "stack_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%27#0",
+        "tmp%28#0",
+        "reinterpret_bytes[8]%1#0"
+      ]
+    },
+    "480": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%27#0",
+        "tmp%28#0",
+        "tmp%29#0"
+      ],
+      "stack_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%27#0",
+        "tmp%28#0",
+        "tmp%29#0"
+      ]
+    },
+    "481": {
+      "op": "txna ApplicationArgs 7",
+      "defined_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%27#0",
+        "tmp%28#0",
+        "tmp%29#0",
+        "tmp%30#0"
+      ],
+      "stack_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%27#0",
+        "tmp%28#0",
+        "tmp%29#0",
+        "tmp%30#0"
+      ]
+    },
+    "484": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%27#0",
+        "tmp%28#0",
+        "tmp%29#0",
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%21#0",
+        "tmp%23#0",
+        "tmp%25#0",
+        "tmp%27#0",
+        "tmp%28#0",
+        "tmp%29#0",
+        "tmp%31#0"
+      ]
+    },
+    "487": {
+      "callsub": "smart_contracts.algorealm.contract.AlgoRealmGameManager.create_game_item",
+      "op": "callsub create_game_item",
+      "defined_out": [
+        "to_encode%2#0"
+      ],
+      "stack_out": [
+        "to_encode%2#0"
+      ]
+    },
+    "490": {
+      "op": "itob",
+      "defined_out": [
+        "val_as_bytes%0#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%0#0"
+      ]
+    },
+    "491": {
+      "op": "bytec_0 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "val_as_bytes%0#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%0#0",
+        "0x151f7c75"
+      ]
+    },
+    "492": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "val_as_bytes%0#0"
+      ]
+    },
+    "493": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%32#0"
+      ],
+      "stack_out": [
+        "tmp%32#0"
+      ]
+    },
+    "494": {
+      "op": "log",
+      "stack_out": []
+    },
+    "495": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "496": {
+      "op": "return",
+      "stack_out": []
+    },
+    "497": {
+      "block": "main_register_player_route@6",
+      "stack_in": [],
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "1"
+      ],
+      "stack_out": [
+        "1"
+      ]
+    },
+    "498": {
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "1",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "1",
+        "tmp%8#0"
+      ]
+    },
+    "500": {
+      "op": "shl",
+      "defined_out": [
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0"
+      ]
+    },
+    "501": {
+      "op": "intc_2 // 3",
+      "defined_out": [
+        "3",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0",
+        "3"
+      ]
+    },
+    "502": {
+      "op": "&",
+      "defined_out": [
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "tmp%10#0"
+      ]
+    },
+    "503": {
+      "error": "OnCompletion is not one of NoOp, OptIn",
+      "op": "assert // OnCompletion is not one of NoOp, OptIn",
+      "stack_out": []
+    },
+    "504": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0"
+      ]
+    },
+    "506": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "507": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "tmp%13#0"
+      ],
+      "stack_out": [
+        "tmp%13#0"
+      ]
+    },
+    "510": {
+      "op": "extract 2 0",
+      "defined_out": [
+        "tmp%14#0"
+      ],
+      "stack_out": [
+        "tmp%14#0"
+      ]
+    },
+    "513": {
+      "callsub": "smart_contracts.algorealm.contract.AlgoRealmGameManager.register_player",
+      "op": "callsub register_player",
+      "defined_out": [
+        "to_encode%1#0"
+      ],
+      "stack_out": [
+        "to_encode%1#0"
+      ]
+    },
+    "516": {
+      "op": "dup",
+      "defined_out": [
+        "to_encode%1#0",
+        "to_encode%1#0 (copy)"
+      ],
+      "stack_out": [
+        "to_encode%1#0",
+        "to_encode%1#0 (copy)"
+      ]
+    },
+    "517": {
+      "op": "len",
+      "defined_out": [
+        "length%1#0",
+        "to_encode%1#0"
+      ],
+      "stack_out": [
+        "to_encode%1#0",
+        "length%1#0"
+      ]
+    },
+    "518": {
+      "op": "itob",
+      "defined_out": [
+        "as_bytes%1#0",
+        "to_encode%1#0"
+      ],
+      "stack_out": [
+        "to_encode%1#0",
+        "as_bytes%1#0"
+      ]
+    },
+    "519": {
+      "op": "extract 6 2",
+      "defined_out": [
+        "length_uint16%1#0",
+        "to_encode%1#0"
+      ],
+      "stack_out": [
+        "to_encode%1#0",
+        "length_uint16%1#0"
+      ]
+    },
+    "522": {
+      "op": "swap",
+      "stack_out": [
+        "length_uint16%1#0",
+        "to_encode%1#0"
+      ]
+    },
+    "523": {
+      "op": "concat",
+      "defined_out": [
+        "encoded_value%1#0"
+      ],
+      "stack_out": [
+        "encoded_value%1#0"
+      ]
+    },
+    "524": {
+      "op": "bytec_0 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "encoded_value%1#0"
+      ],
+      "stack_out": [
+        "encoded_value%1#0",
+        "0x151f7c75"
+      ]
+    },
+    "525": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "encoded_value%1#0"
+      ]
+    },
+    "526": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%15#0"
+      ],
+      "stack_out": [
+        "tmp%15#0"
+      ]
+    },
+    "527": {
+      "op": "log",
+      "stack_out": []
+    },
+    "528": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "529": {
+      "op": "return",
+      "stack_out": []
+    },
+    "530": {
+      "block": "main_initialize_game_route@5",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "532": {
+      "op": "!",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "533": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "534": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "536": {
+      "op": "!",
+      "defined_out": [
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "tmp%6#0"
+      ]
+    },
+    "537": {
+      "error": "can only call when creating",
+      "op": "assert // can only call when creating",
+      "stack_out": []
+    },
+    "538": {
+      "callsub": "smart_contracts.algorealm.contract.AlgoRealmGameManager.initialize_game",
+      "op": "callsub initialize_game",
+      "defined_out": [
+        "to_encode%0#0"
+      ],
+      "stack_out": [
+        "to_encode%0#0"
+      ]
+    },
+    "541": {
+      "op": "dup",
+      "defined_out": [
+        "to_encode%0#0",
+        "to_encode%0#0 (copy)"
+      ],
+      "stack_out": [
+        "to_encode%0#0",
+        "to_encode%0#0 (copy)"
+      ]
+    },
+    "542": {
+      "op": "len",
+      "defined_out": [
+        "length%0#0",
+        "to_encode%0#0"
+      ],
+      "stack_out": [
+        "to_encode%0#0",
+        "length%0#0"
+      ]
+    },
+    "543": {
+      "op": "itob",
+      "defined_out": [
+        "as_bytes%0#0",
+        "to_encode%0#0"
+      ],
+      "stack_out": [
+        "to_encode%0#0",
+        "as_bytes%0#0"
+      ]
+    },
+    "544": {
+      "op": "extract 6 2",
+      "defined_out": [
+        "length_uint16%0#0",
+        "to_encode%0#0"
+      ],
+      "stack_out": [
+        "to_encode%0#0",
+        "length_uint16%0#0"
+      ]
+    },
+    "547": {
+      "op": "swap",
+      "stack_out": [
+        "length_uint16%0#0",
+        "to_encode%0#0"
+      ]
+    },
+    "548": {
+      "op": "concat",
+      "defined_out": [
+        "encoded_value%0#0"
+      ],
+      "stack_out": [
+        "encoded_value%0#0"
+      ]
+    },
+    "549": {
+      "op": "bytec_0 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "encoded_value%0#0"
+      ],
+      "stack_out": [
+        "encoded_value%0#0",
+        "0x151f7c75"
+      ]
+    },
+    "550": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "encoded_value%0#0"
+      ]
+    },
+    "551": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "552": {
+      "op": "log",
+      "stack_out": []
+    },
+    "553": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "554": {
+      "op": "return",
+      "stack_out": []
+    },
+    "555": {
+      "subroutine": "smart_contracts.algorealm.contract.AlgoRealmGameManager.initialize_game",
+      "params": {},
+      "block": "initialize_game",
+      "stack_in": [],
+      "op": "bytec 4 // \"total_players\"",
+      "defined_out": [
+        "\"total_players\""
+      ],
+      "stack_out": [
+        "\"total_players\""
+      ]
+    },
+    "557": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "\"total_players\"",
+        "0"
+      ],
+      "stack_out": [
+        "\"total_players\"",
+        "0"
+      ]
+    },
+    "558": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "559": {
+      "op": "bytec 5 // \"total_items_created\"",
+      "defined_out": [
+        "\"total_items_created\""
+      ],
+      "stack_out": [
+        "\"total_items_created\""
+      ]
+    },
+    "561": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "\"total_items_created\"",
+        "0"
+      ]
+    },
+    "562": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "563": {
+      "op": "bytec 6 // \"current_season\"",
+      "defined_out": [
+        "\"current_season\""
+      ],
+      "stack_out": [
+        "\"current_season\""
+      ]
+    },
+    "565": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "\"current_season\"",
+        "1"
+      ],
+      "stack_out": [
+        "\"current_season\"",
+        "1"
+      ]
+    },
+    "566": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "567": {
+      "op": "bytec 10 // \"max_recovery_per_item\"",
+      "defined_out": [
+        "\"max_recovery_per_item\""
+      ],
+      "stack_out": [
+        "\"max_recovery_per_item\""
+      ]
+    },
+    "569": {
+      "op": "intc_2 // 3",
+      "defined_out": [
+        "\"max_recovery_per_item\"",
+        "3"
+      ],
+      "stack_out": [
+        "\"max_recovery_per_item\"",
+        "3"
+      ]
+    },
+    "570": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "571": {
+      "op": "bytec 7 // \"game_master\"",
+      "defined_out": [
+        "\"game_master\""
+      ],
+      "stack_out": [
+        "\"game_master\""
+      ]
+    },
+    "573": {
+      "op": "txn Sender",
+      "defined_out": [
+        "\"game_master\"",
+        "materialized_values%0#0"
+      ],
+      "stack_out": [
+        "\"game_master\"",
+        "materialized_values%0#0"
+      ]
+    },
+    "575": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "576": {
+      "op": "pushbytes \"AlgoRealm initialized!\"",
+      "defined_out": [
+        "\"AlgoRealm initialized!\""
+      ],
+      "stack_out": [
+        "\"AlgoRealm initialized!\""
+      ]
+    },
+    "600": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "601": {
+      "subroutine": "smart_contracts.algorealm.contract.AlgoRealmGameManager.register_player",
+      "params": {
+        "player_name#0": "bytes"
+      },
+      "block": "register_player",
+      "stack_in": [],
+      "op": "proto 1 1"
+    },
+    "604": {
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "606": {
+      "op": "intc_1 // OptIn",
+      "defined_out": [
+        "OptIn",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "OptIn"
+      ]
+    },
+    "607": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "608": {
+      "op": "bz register_player_after_if_else@2",
+      "stack_out": []
+    },
+    "611": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "613": {
+      "op": "bytec 8 // \"player_level\"",
+      "defined_out": [
+        "\"player_level\"",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0",
+        "\"player_level\""
+      ]
+    },
+    "615": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "\"player_level\"",
+        "0",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0",
+        "\"player_level\"",
+        "0"
+      ]
+    },
+    "616": {
+      "op": "app_local_put",
+      "stack_out": []
+    },
+    "617": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "619": {
+      "op": "bytec 9 // \"player_experience\"",
+      "defined_out": [
+        "\"player_experience\"",
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0",
+        "\"player_experience\""
+      ]
+    },
+    "621": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "tmp%3#0",
+        "\"player_experience\"",
+        "0"
+      ]
+    },
+    "622": {
+      "op": "app_local_put",
+      "stack_out": []
+    },
+    "623": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "625": {
+      "op": "bytec_3 // \"player_recovery_count\"",
+      "defined_out": [
+        "\"player_recovery_count\"",
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0",
+        "\"player_recovery_count\""
+      ]
+    },
+    "626": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "tmp%4#0",
+        "\"player_recovery_count\"",
+        "0"
+      ]
+    },
+    "627": {
+      "op": "app_local_put",
+      "stack_out": []
+    },
+    "628": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "630": {
+      "op": "bytec_1 // \"is_registered\"",
+      "defined_out": [
+        "\"is_registered\"",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0",
+        "\"is_registered\""
+      ]
+    },
+    "631": {
+      "op": "bytec_2 // 0x00",
+      "defined_out": [
+        "\"is_registered\"",
+        "0x00",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0",
+        "\"is_registered\"",
+        "0x00"
+      ]
+    },
+    "632": {
+      "op": "app_local_put",
+      "stack_out": []
+    },
+    "633": {
+      "op": "pushbytes \"Opted in to AlgoRealm!\"",
+      "defined_out": [
+        "\"Opted in to AlgoRealm!\""
+      ],
+      "stack_out": [
+        "\"Opted in to AlgoRealm!\""
+      ]
+    },
+    "657": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "658": {
+      "block": "register_player_after_if_else@2",
+      "stack_in": [],
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "tmp%6#0"
+      ]
+    },
+    "660": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "tmp%6#0",
+        "0"
+      ]
+    },
+    "661": {
+      "op": "bytec_1 // \"is_registered\"",
+      "defined_out": [
+        "\"is_registered\"",
+        "0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "tmp%6#0",
+        "0",
+        "\"is_registered\""
+      ]
+    },
+    "662": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "663": {
+      "error": "check self.is_registered exists for account",
+      "op": "assert // check self.is_registered exists for account",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "664": {
+      "op": "bytec_2 // 0x00",
+      "defined_out": [
+        "0x00",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "0x00"
+      ]
+    },
+    "665": {
+      "op": "!=",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "666": {
+      "op": "bz register_player_after_if_else@4",
+      "stack_out": []
+    },
+    "669": {
+      "op": "pushbytes \"Player already registered\"",
+      "defined_out": [
+        "\"Player already registered\""
+      ],
+      "stack_out": [
+        "\"Player already registered\""
+      ]
+    },
+    "696": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "697": {
+      "block": "register_player_after_if_else@4",
+      "stack_in": [],
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "699": {
+      "op": "bytec 8 // \"player_level\"",
+      "defined_out": [
+        "\"player_level\"",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "\"player_level\""
+      ]
+    },
+    "701": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "\"player_level\"",
+        "1",
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0",
+        "\"player_level\"",
+        "1"
+      ]
+    },
+    "702": {
+      "op": "app_local_put",
+      "stack_out": []
+    },
+    "703": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0"
+      ]
+    },
+    "705": {
+      "op": "bytec 9 // \"player_experience\"",
+      "defined_out": [
+        "\"player_experience\"",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0",
+        "\"player_experience\""
+      ]
+    },
+    "707": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "\"player_experience\"",
+        "0",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0",
+        "\"player_experience\"",
+        "0"
+      ]
+    },
+    "708": {
+      "op": "app_local_put",
+      "stack_out": []
+    },
+    "709": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "tmp%10#0"
+      ]
+    },
+    "711": {
+      "op": "bytec_3 // \"player_recovery_count\"",
+      "defined_out": [
+        "\"player_recovery_count\"",
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "tmp%10#0",
+        "\"player_recovery_count\""
+      ]
+    },
+    "712": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "tmp%10#0",
+        "\"player_recovery_count\"",
+        "0"
+      ]
+    },
+    "713": {
+      "op": "app_local_put",
+      "stack_out": []
+    },
+    "714": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0"
+      ]
+    },
+    "716": {
+      "op": "bytec_1 // \"is_registered\"",
+      "defined_out": [
+        "\"is_registered\"",
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0",
+        "\"is_registered\""
+      ]
+    },
+    "717": {
+      "op": "pushbytes 0x80",
+      "defined_out": [
+        "\"is_registered\"",
+        "0x80",
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0",
+        "\"is_registered\"",
+        "0x80"
+      ]
+    },
+    "720": {
+      "op": "app_local_put",
+      "stack_out": []
+    },
+    "721": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "722": {
+      "op": "bytec 4 // \"total_players\"",
+      "defined_out": [
+        "\"total_players\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"total_players\""
+      ]
+    },
+    "724": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "725": {
+      "error": "check self.total_players exists",
+      "op": "assert // check self.total_players exists",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "726": {
+      "op": "intc_1 // 1",
+      "stack_out": [
+        "maybe_value%1#0",
+        "1"
+      ]
+    },
+    "727": {
+      "op": "+",
+      "defined_out": [
+        "materialized_values%0#0"
+      ],
+      "stack_out": [
+        "materialized_values%0#0"
+      ]
+    },
+    "728": {
+      "op": "bytec 4 // \"total_players\"",
+      "stack_out": [
+        "materialized_values%0#0",
+        "\"total_players\""
+      ]
+    },
+    "730": {
+      "op": "swap",
+      "stack_out": [
+        "\"total_players\"",
+        "materialized_values%0#0"
+      ]
+    },
+    "731": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "732": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "player_name#0 (copy)"
+      ],
+      "stack_out": [
+        "player_name#0 (copy)"
+      ]
+    },
+    "734": {
+      "op": "log",
+      "stack_out": []
+    },
+    "735": {
+      "op": "pushbytes \"Welcome to AlgoRealm!\"",
+      "defined_out": [
+        "\"Welcome to AlgoRealm!\""
+      ],
+      "stack_out": [
+        "\"Welcome to AlgoRealm!\""
+      ]
+    },
+    "758": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "759": {
+      "subroutine": "smart_contracts.algorealm.contract.AlgoRealmGameManager.create_game_item",
+      "params": {
+        "recipient#0": "bytes",
+        "item_name#0": "bytes",
+        "item_type#0": "bytes",
+        "rarity#0": "bytes",
+        "attack_power#0": "uint64",
+        "defense_power#0": "uint64",
+        "special_effect#0": "bytes"
+      },
+      "block": "create_game_item",
+      "stack_in": [],
+      "op": "proto 7 1"
+    },
+    "762": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "764": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "765": {
+      "op": "bytec 7 // \"game_master\"",
+      "defined_out": [
+        "\"game_master\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"game_master\""
+      ]
+    },
+    "767": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "768": {
+      "error": "check self.game_master exists",
+      "op": "assert // check self.game_master exists",
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "769": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "770": {
+      "error": "Only game master can create items",
+      "op": "assert // Only game master can create items",
+      "stack_out": []
+    },
+    "771": {
+      "op": "frame_dig -7",
+      "defined_out": [
+        "recipient#0 (copy)"
+      ],
+      "stack_out": [
+        "recipient#0 (copy)"
+      ]
+    },
+    "773": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "recipient#0 (copy)",
+        "0"
+      ]
+    },
+    "774": {
+      "op": "bytec_1 // \"is_registered\"",
+      "defined_out": [
+        "\"is_registered\"",
+        "0",
+        "recipient#0 (copy)"
+      ],
+      "stack_out": [
+        "recipient#0 (copy)",
+        "0",
+        "\"is_registered\""
+      ]
+    },
+    "775": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "776": {
+      "error": "check self.is_registered exists for account",
+      "op": "assert // check self.is_registered exists for account",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "777": {
+      "op": "bytec_2 // 0x00",
+      "defined_out": [
+        "0x00",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "0x00"
+      ]
+    },
+    "778": {
+      "op": "!=",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "779": {
+      "error": "Recipient must be registered player",
+      "op": "assert // Recipient must be registered player",
+      "stack_out": []
+    },
+    "780": {
+      "op": "itxn_begin"
+    },
+    "781": {
+      "op": "global MinTxnFee",
+      "defined_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "783": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0"
+      ]
+    },
+    "785": {
+      "op": "dupn 3",
+      "defined_out": [
+        "inner_txn_params%0%%param_ConfigAssetClawback_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetFreeze_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetFreeze_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetClawback_idx_0#0"
+      ]
+    },
+    "787": {
+      "op": "frame_dig -6",
+      "defined_out": [
+        "inner_txn_params%0%%param_ConfigAssetClawback_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetFreeze_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "item_name#0 (copy)"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetFreeze_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetClawback_idx_0#0",
+        "item_name#0 (copy)"
+      ]
+    },
+    "789": {
+      "op": "frame_dig -4",
+      "defined_out": [
+        "inner_txn_params%0%%param_ConfigAssetClawback_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetFreeze_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "item_name#0 (copy)",
+        "rarity#0 (copy)"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetFreeze_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetClawback_idx_0#0",
+        "item_name#0 (copy)",
+        "rarity#0 (copy)"
+      ]
+    },
+    "791": {
+      "op": "concat",
+      "defined_out": [
+        "inner_txn_params%0%%param_ConfigAssetClawback_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetFreeze_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_Note_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetFreeze_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetClawback_idx_0#0",
+        "inner_txn_params%0%%param_Note_idx_0#0"
+      ]
+    },
+    "792": {
+      "op": "itxn_field Note",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetFreeze_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetClawback_idx_0#0"
+      ]
+    },
+    "794": {
+      "op": "itxn_field ConfigAssetClawback",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetFreeze_idx_0#0"
+      ]
+    },
+    "796": {
+      "op": "itxn_field ConfigAssetFreeze",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0"
+      ]
+    },
+    "798": {
+      "op": "itxn_field ConfigAssetReserve",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0"
+      ]
+    },
+    "800": {
+      "op": "itxn_field ConfigAssetManager",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "802": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "0"
+      ]
+    },
+    "803": {
+      "op": "itxn_field ConfigAssetDefaultFrozen",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "805": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "0"
+      ]
+    },
+    "806": {
+      "op": "itxn_field ConfigAssetDecimals",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "808": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "1",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "1"
+      ]
+    },
+    "809": {
+      "op": "itxn_field ConfigAssetTotal",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "811": {
+      "op": "pushbytes \"ALGITEM\"",
+      "defined_out": [
+        "\"ALGITEM\"",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "\"ALGITEM\""
+      ]
+    },
+    "820": {
+      "op": "itxn_field ConfigAssetUnitName",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "822": {
+      "op": "frame_dig -6",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "item_name#0 (copy)"
+      ]
+    },
+    "824": {
+      "op": "itxn_field ConfigAssetName",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "826": {
+      "op": "intc_2 // acfg",
+      "defined_out": [
+        "acfg",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "acfg"
+      ]
+    },
+    "827": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "829": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "831": {
+      "op": "itxn_submit"
+    },
+    "832": {
+      "op": "itxn CreatedAssetID",
+      "defined_out": [
+        "item_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "item_asa.CreatedAssetID#0"
+      ]
+    },
+    "834": {
+      "op": "itxn_begin"
+    },
+    "835": {
+      "op": "global MinTxnFee",
+      "defined_out": [
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "item_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "837": {
+      "op": "dig 1",
+      "defined_out": [
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "item_asa.CreatedAssetID#0",
+        "item_asa.CreatedAssetID#0 (copy)"
+      ],
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "item_asa.CreatedAssetID#0 (copy)"
+      ]
+    },
+    "839": {
+      "op": "itxn_field XferAsset",
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "841": {
+      "op": "intc_1 // 1",
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "1"
+      ]
+    },
+    "842": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "844": {
+      "op": "frame_dig -7",
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "recipient#0 (copy)"
+      ]
+    },
+    "846": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "848": {
+      "op": "intc_3 // axfer",
+      "defined_out": [
+        "axfer",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "item_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "axfer"
+      ]
+    },
+    "849": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "851": {
+      "op": "itxn_field Fee",
+      "stack_out": [
+        "item_asa.CreatedAssetID#0"
+      ]
+    },
+    "853": {
+      "op": "itxn_submit"
+    },
+    "854": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "0"
+      ]
+    },
+    "855": {
+      "op": "bytec 5 // \"total_items_created\"",
+      "defined_out": [
+        "\"total_items_created\"",
+        "0",
+        "item_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "0",
+        "\"total_items_created\""
+      ]
+    },
+    "857": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "item_asa.CreatedAssetID#0",
+        "maybe_exists%2#0",
+        "maybe_value%2#0"
+      ],
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "maybe_value%2#0",
+        "maybe_exists%2#0"
+      ]
+    },
+    "858": {
+      "error": "check self.total_items_created exists",
+      "op": "assert // check self.total_items_created exists",
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "maybe_value%2#0"
+      ]
+    },
+    "859": {
+      "op": "intc_1 // 1",
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "maybe_value%2#0",
+        "1"
+      ]
+    },
+    "860": {
+      "op": "+",
+      "defined_out": [
+        "item_asa.CreatedAssetID#0",
+        "materialized_values%0#0"
+      ],
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "materialized_values%0#0"
+      ]
+    },
+    "861": {
+      "op": "bytec 5 // \"total_items_created\"",
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "materialized_values%0#0",
+        "\"total_items_created\""
+      ]
+    },
+    "863": {
+      "op": "swap",
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "\"total_items_created\"",
+        "materialized_values%0#0"
+      ]
+    },
+    "864": {
+      "op": "app_global_put",
+      "stack_out": [
+        "item_asa.CreatedAssetID#0"
+      ]
+    },
+    "865": {
+      "op": "pushbytes 0x4974656d2063726561746564",
+      "defined_out": [
+        "0x4974656d2063726561746564",
+        "item_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "item_asa.CreatedAssetID#0",
+        "0x4974656d2063726561746564"
+      ]
+    },
+    "879": {
+      "op": "log",
+      "stack_out": [
+        "item_asa.CreatedAssetID#0"
+      ]
+    },
+    "880": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "881": {
+      "subroutine": "smart_contracts.algorealm.contract.AlgoRealmGameManager.recover_lost_item",
+      "params": {
+        "original_item_id#0": "uint64",
+        "recovery_quest_proof#0": "bytes",
+        "new_recipient#0": "bytes"
+      },
+      "block": "recover_lost_item",
+      "stack_in": [],
+      "op": "proto 3 1"
+    },
+    "884": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "886": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "887": {
+      "op": "bytec_1 // \"is_registered\"",
+      "defined_out": [
+        "\"is_registered\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"is_registered\""
+      ]
+    },
+    "888": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "889": {
+      "error": "check self.is_registered exists for account",
+      "op": "assert // check self.is_registered exists for account",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "890": {
+      "op": "bytec_2 // 0x00",
+      "defined_out": [
+        "0x00",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "0x00"
+      ]
+    },
+    "891": {
+      "op": "!=",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "892": {
+      "error": "Only registered players can recover items",
+      "op": "assert // Only registered players can recover items",
+      "stack_out": []
+    },
+    "893": {
+      "op": "frame_dig -3",
+      "defined_out": [
+        "original_item_id#0 (copy)"
+      ],
+      "stack_out": [
+        "original_item_id#0 (copy)"
+      ]
+    },
+    "895": {
+      "op": "asset_params_get AssetMetadataHash",
+      "defined_out": [
+        "original_metadata_response.0#0",
+        "original_metadata_response.1#0"
+      ],
+      "stack_out": [
+        "original_metadata_response.0#0",
+        "original_metadata_response.1#0"
+      ]
+    },
+    "897": {
+      "op": "pop",
+      "stack_out": [
+        "original_metadata_response.0#0"
+      ]
+    },
+    "898": {
+      "op": "len",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "899": {
+      "error": "Original item not found",
+      "op": "assert // Original item not found",
+      "stack_out": []
+    },
+    "900": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "recovery_quest_proof#0 (copy)"
+      ],
+      "stack_out": [
+        "recovery_quest_proof#0 (copy)"
+      ]
+    },
+    "902": {
+      "op": "pushbytes 0x",
+      "defined_out": [
+        "0x",
+        "recovery_quest_proof#0 (copy)"
+      ],
+      "stack_out": [
+        "recovery_quest_proof#0 (copy)",
+        "0x"
+      ]
+    },
+    "904": {
+      "op": "!=",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "905": {
+      "error": "Must provide recovery quest proof",
+      "op": "assert // Must provide recovery quest proof",
+      "stack_out": []
+    },
+    "906": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "908": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "tmp%5#0",
+        "0"
+      ]
+    },
+    "909": {
+      "op": "bytec_3 // \"player_recovery_count\"",
+      "defined_out": [
+        "\"player_recovery_count\"",
+        "0",
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0",
+        "0",
+        "\"player_recovery_count\""
+      ]
+    },
+    "910": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "current_recovery_count#0",
+        "maybe_exists%1#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "911": {
+      "error": "check self.player_recovery_count exists for account",
+      "op": "assert // check self.player_recovery_count exists for account",
+      "stack_out": [
+        "current_recovery_count#0"
+      ]
+    },
+    "912": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "current_recovery_count#0",
+        "0"
+      ]
+    },
+    "913": {
+      "op": "bytec 10 // \"max_recovery_per_item\"",
+      "defined_out": [
+        "\"max_recovery_per_item\"",
+        "0",
+        "current_recovery_count#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "0",
+        "\"max_recovery_per_item\""
+      ]
+    },
+    "915": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "current_recovery_count#0",
+        "maybe_exists%2#0",
+        "maybe_value%2#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "maybe_value%2#0",
+        "maybe_exists%2#0"
+      ]
+    },
+    "916": {
+      "error": "check self.max_recovery_per_item exists",
+      "op": "assert // check self.max_recovery_per_item exists",
+      "stack_out": [
+        "current_recovery_count#0",
+        "maybe_value%2#0"
+      ]
+    },
+    "917": {
+      "op": "dig 1",
+      "defined_out": [
+        "current_recovery_count#0",
+        "current_recovery_count#0 (copy)",
+        "maybe_value%2#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "maybe_value%2#0",
+        "current_recovery_count#0 (copy)"
+      ]
+    },
+    "919": {
+      "op": ">",
+      "defined_out": [
+        "current_recovery_count#0",
+        "tmp%6#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "tmp%6#0"
+      ]
+    },
+    "920": {
+      "error": "Recovery limit reached",
+      "op": "assert // Recovery limit reached",
+      "stack_out": [
+        "current_recovery_count#0"
+      ]
+    },
+    "921": {
+      "op": "frame_dig -3",
+      "stack_out": [
+        "current_recovery_count#0",
+        "original_item_id#0 (copy)"
+      ]
+    },
+    "923": {
+      "op": "asset_params_get AssetName",
+      "defined_out": [
+        "current_recovery_count#0",
+        "original_name_response.0#0",
+        "original_name_response.1#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "original_name_response.0#0",
+        "original_name_response.1#0"
+      ]
+    },
+    "925": {
+      "op": "pop",
+      "stack_out": [
+        "current_recovery_count#0",
+        "original_name_response.0#0"
+      ]
+    },
+    "926": {
+      "op": "len",
+      "defined_out": [
+        "current_recovery_count#0",
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "tmp%7#0"
+      ]
+    },
+    "927": {
+      "error": "Cannot get original item name",
+      "op": "assert // Cannot get original item name",
+      "stack_out": [
+        "current_recovery_count#0"
+      ]
+    },
+    "928": {
+      "op": "pushbytes 0x5245434f56455245445f4954454d5f",
+      "defined_out": [
+        "0x5245434f56455245445f4954454d5f",
+        "current_recovery_count#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "0x5245434f56455245445f4954454d5f"
+      ]
+    },
+    "945": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "current_recovery_count#0",
+        "0x5245434f56455245445f4954454d5f",
+        "recovery_quest_proof#0 (copy)"
+      ]
+    },
+    "947": {
+      "op": "concat",
+      "defined_out": [
+        "current_recovery_count#0",
+        "recovery_note#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "recovery_note#0"
+      ]
+    },
+    "948": {
+      "op": "itxn_begin"
+    },
+    "949": {
+      "op": "global MinTxnFee",
+      "defined_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "recovery_note#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "recovery_note#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "951": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "recovery_note#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "recovery_note#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0"
+      ]
+    },
+    "953": {
+      "op": "dupn 3",
+      "defined_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_ConfigAssetClawback_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetFreeze_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "recovery_note#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "recovery_note#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetFreeze_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetClawback_idx_0#0"
+      ]
+    },
+    "955": {
+      "op": "uncover 5",
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetFreeze_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetClawback_idx_0#0",
+        "recovery_note#0"
+      ]
+    },
+    "957": {
+      "op": "itxn_field Note",
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetFreeze_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetClawback_idx_0#0"
+      ]
+    },
+    "959": {
+      "op": "itxn_field ConfigAssetClawback",
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetFreeze_idx_0#0"
+      ]
+    },
+    "961": {
+      "op": "itxn_field ConfigAssetFreeze",
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0"
+      ]
+    },
+    "963": {
+      "op": "itxn_field ConfigAssetReserve",
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0"
+      ]
+    },
+    "965": {
+      "op": "itxn_field ConfigAssetManager",
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "967": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "0"
+      ]
+    },
+    "968": {
+      "op": "itxn_field ConfigAssetDefaultFrozen",
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "970": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "0"
+      ]
+    },
+    "971": {
+      "op": "itxn_field ConfigAssetDecimals",
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "973": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "1",
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "1"
+      ]
+    },
+    "974": {
+      "op": "itxn_field ConfigAssetTotal",
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "976": {
+      "op": "pushbytes \"ALGRECOV\"",
+      "defined_out": [
+        "\"ALGRECOV\"",
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "\"ALGRECOV\""
+      ]
+    },
+    "986": {
+      "op": "itxn_field ConfigAssetUnitName",
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "988": {
+      "op": "pushbytes \"RECOVERED_ITEM\"",
+      "defined_out": [
+        "\"RECOVERED_ITEM\"",
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "\"RECOVERED_ITEM\""
+      ]
+    },
+    "1004": {
+      "op": "itxn_field ConfigAssetName",
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1006": {
+      "op": "intc_2 // acfg",
+      "defined_out": [
+        "acfg",
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "acfg"
+      ]
+    },
+    "1007": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1009": {
+      "op": "itxn_field Fee",
+      "stack_out": [
+        "current_recovery_count#0"
+      ]
+    },
+    "1011": {
+      "op": "itxn_submit"
+    },
+    "1012": {
+      "op": "itxn CreatedAssetID",
+      "defined_out": [
+        "current_recovery_count#0",
+        "recovered_item_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "recovered_item_asa.CreatedAssetID#0"
+      ]
+    },
+    "1014": {
+      "op": "itxn_begin"
+    },
+    "1015": {
+      "op": "global MinTxnFee",
+      "defined_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "recovered_item_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "recovered_item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "1017": {
+      "op": "dig 1",
+      "defined_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "recovered_item_asa.CreatedAssetID#0",
+        "recovered_item_asa.CreatedAssetID#0 (copy)"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "recovered_item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "recovered_item_asa.CreatedAssetID#0 (copy)"
+      ]
+    },
+    "1019": {
+      "op": "itxn_field XferAsset",
+      "stack_out": [
+        "current_recovery_count#0",
+        "recovered_item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "1021": {
+      "op": "intc_1 // 1",
+      "stack_out": [
+        "current_recovery_count#0",
+        "recovered_item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "1"
+      ]
+    },
+    "1022": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "current_recovery_count#0",
+        "recovered_item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "1024": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "current_recovery_count#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "new_recipient#0 (copy)",
+        "recovered_item_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "recovered_item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "new_recipient#0 (copy)"
+      ]
+    },
+    "1026": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": [
+        "current_recovery_count#0",
+        "recovered_item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "1028": {
+      "op": "intc_3 // axfer",
+      "defined_out": [
+        "axfer",
+        "current_recovery_count#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "recovered_item_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "current_recovery_count#0",
+        "recovered_item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "axfer"
+      ]
+    },
+    "1029": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "current_recovery_count#0",
+        "recovered_item_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "1031": {
+      "op": "itxn_field Fee",
+      "stack_out": [
+        "current_recovery_count#0",
+        "recovered_item_asa.CreatedAssetID#0"
+      ]
+    },
+    "1033": {
+      "op": "itxn_submit"
+    },
+    "1034": {
+      "op": "swap",
+      "stack_out": [
+        "recovered_item_asa.CreatedAssetID#0",
+        "current_recovery_count#0"
+      ]
+    },
+    "1035": {
+      "op": "intc_1 // 1",
+      "stack_out": [
+        "recovered_item_asa.CreatedAssetID#0",
+        "current_recovery_count#0",
+        "1"
+      ]
+    },
+    "1036": {
+      "op": "+",
+      "defined_out": [
+        "materialized_values%0#0",
+        "recovered_item_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "recovered_item_asa.CreatedAssetID#0",
+        "materialized_values%0#0"
+      ]
+    },
+    "1037": {
+      "op": "txn Sender",
+      "defined_out": [
+        "materialized_values%0#0",
+        "recovered_item_asa.CreatedAssetID#0",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "recovered_item_asa.CreatedAssetID#0",
+        "materialized_values%0#0",
+        "tmp%9#0"
+      ]
+    },
+    "1039": {
+      "op": "bytec_3 // \"player_recovery_count\"",
+      "stack_out": [
+        "recovered_item_asa.CreatedAssetID#0",
+        "materialized_values%0#0",
+        "tmp%9#0",
+        "\"player_recovery_count\""
+      ]
+    },
+    "1040": {
+      "op": "uncover 2",
+      "stack_out": [
+        "recovered_item_asa.CreatedAssetID#0",
+        "tmp%9#0",
+        "\"player_recovery_count\"",
+        "materialized_values%0#0"
+      ]
+    },
+    "1042": {
+      "op": "app_local_put",
+      "stack_out": [
+        "recovered_item_asa.CreatedAssetID#0"
+      ]
+    },
+    "1043": {
+      "op": "pushbytes 0x4974656d207265636f7665726564",
+      "defined_out": [
+        "0x4974656d207265636f7665726564",
+        "recovered_item_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "recovered_item_asa.CreatedAssetID#0",
+        "0x4974656d207265636f7665726564"
+      ]
+    },
+    "1059": {
+      "op": "log",
+      "stack_out": [
+        "recovered_item_asa.CreatedAssetID#0"
+      ]
+    },
+    "1060": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "1061": {
+      "subroutine": "smart_contracts.algorealm.contract.AlgoRealmGameManager.seasonal_event_reissue",
+      "params": {
+        "event_name#0": "bytes",
+        "participation_proof#0": "bytes",
+        "recipient#0": "bytes"
+      },
+      "block": "seasonal_event_reissue",
+      "stack_in": [],
+      "op": "proto 3 1"
+    },
+    "1064": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "1066": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "1067": {
+      "op": "bytec_1 // \"is_registered\"",
+      "defined_out": [
+        "\"is_registered\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"is_registered\""
+      ]
+    },
+    "1068": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "1069": {
+      "error": "check self.is_registered exists for account",
+      "op": "assert // check self.is_registered exists for account",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "1070": {
+      "op": "bytec_2 // 0x00",
+      "defined_out": [
+        "0x00",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "0x00"
+      ]
+    },
+    "1071": {
+      "op": "!=",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "1072": {
+      "error": "Only registered players can participate",
+      "op": "assert // Only registered players can participate",
+      "stack_out": []
+    },
+    "1073": {
+      "op": "frame_dig -2",
+      "defined_out": [
+        "participation_proof#0 (copy)"
+      ],
+      "stack_out": [
+        "participation_proof#0 (copy)"
+      ]
+    },
+    "1075": {
+      "op": "pushbytes 0x",
+      "defined_out": [
+        "0x",
+        "participation_proof#0 (copy)"
+      ],
+      "stack_out": [
+        "participation_proof#0 (copy)",
+        "0x"
+      ]
+    },
+    "1077": {
+      "op": "!=",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "1078": {
+      "error": "Must provide participation proof",
+      "op": "assert // Must provide participation proof",
+      "stack_out": []
+    },
+    "1079": {
+      "op": "pushbytes 0x534541534f4e414c5f",
+      "defined_out": [
+        "0x534541534f4e414c5f"
+      ],
+      "stack_out": [
+        "0x534541534f4e414c5f"
+      ]
+    },
+    "1090": {
+      "op": "frame_dig -2",
+      "stack_out": [
+        "0x534541534f4e414c5f",
+        "participation_proof#0 (copy)"
+      ]
+    },
+    "1092": {
+      "op": "concat",
+      "defined_out": [
+        "seasonal_note#0"
+      ],
+      "stack_out": [
+        "seasonal_note#0"
+      ]
+    },
+    "1093": {
+      "op": "itxn_begin"
+    },
+    "1094": {
+      "op": "global MinTxnFee",
+      "defined_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "seasonal_note#0"
+      ],
+      "stack_out": [
+        "seasonal_note#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1096": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "seasonal_note#0"
+      ],
+      "stack_out": [
+        "seasonal_note#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0"
+      ]
+    },
+    "1098": {
+      "op": "dup",
+      "defined_out": [
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "seasonal_note#0"
+      ],
+      "stack_out": [
+        "seasonal_note#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0"
+      ]
+    },
+    "1099": {
+      "op": "uncover 3",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0",
+        "seasonal_note#0"
+      ]
+    },
+    "1101": {
+      "op": "itxn_field Note",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetReserve_idx_0#0"
+      ]
+    },
+    "1103": {
+      "op": "itxn_field ConfigAssetReserve",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0"
+      ]
+    },
+    "1105": {
+      "op": "itxn_field ConfigAssetManager",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1107": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "0"
+      ]
+    },
+    "1108": {
+      "op": "itxn_field ConfigAssetDefaultFrozen",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1110": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "0"
+      ]
+    },
+    "1111": {
+      "op": "itxn_field ConfigAssetDecimals",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1113": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "1",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "1"
+      ]
+    },
+    "1114": {
+      "op": "itxn_field ConfigAssetTotal",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1116": {
+      "op": "pushbytes \"ALGSEASN\"",
+      "defined_out": [
+        "\"ALGSEASN\"",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "\"ALGSEASN\""
+      ]
+    },
+    "1126": {
+      "op": "itxn_field ConfigAssetUnitName",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1128": {
+      "op": "pushbytes \"SEASONAL_ITEM\"",
+      "defined_out": [
+        "\"SEASONAL_ITEM\"",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "\"SEASONAL_ITEM\""
+      ]
+    },
+    "1143": {
+      "op": "itxn_field ConfigAssetName",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1145": {
+      "op": "intc_2 // acfg",
+      "defined_out": [
+        "acfg",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "acfg"
+      ]
+    },
+    "1146": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1148": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "1150": {
+      "op": "itxn_submit"
+    },
+    "1151": {
+      "op": "itxn CreatedAssetID",
+      "defined_out": [
+        "seasonal_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "seasonal_asa.CreatedAssetID#0"
+      ]
+    },
+    "1153": {
+      "op": "itxn_begin"
+    },
+    "1154": {
+      "op": "global MinTxnFee",
+      "defined_out": [
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "seasonal_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "seasonal_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "1156": {
+      "op": "dig 1",
+      "defined_out": [
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "seasonal_asa.CreatedAssetID#0",
+        "seasonal_asa.CreatedAssetID#0 (copy)"
+      ],
+      "stack_out": [
+        "seasonal_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "seasonal_asa.CreatedAssetID#0 (copy)"
+      ]
+    },
+    "1158": {
+      "op": "itxn_field XferAsset",
+      "stack_out": [
+        "seasonal_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "1160": {
+      "op": "intc_1 // 1",
+      "stack_out": [
+        "seasonal_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "1"
+      ]
+    },
+    "1161": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "seasonal_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "1163": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "recipient#0 (copy)",
+        "seasonal_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "seasonal_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "recipient#0 (copy)"
+      ]
+    },
+    "1165": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": [
+        "seasonal_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "1167": {
+      "op": "intc_3 // axfer",
+      "defined_out": [
+        "axfer",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "seasonal_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "seasonal_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "axfer"
+      ]
+    },
+    "1168": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "seasonal_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "1170": {
+      "op": "itxn_field Fee",
+      "stack_out": [
+        "seasonal_asa.CreatedAssetID#0"
+      ]
+    },
+    "1172": {
+      "op": "itxn_submit"
+    },
+    "1173": {
+      "op": "pushbytes 0x536561736f6e616c206974656d20697373756564",
+      "defined_out": [
+        "0x536561736f6e616c206974656d20697373756564",
+        "seasonal_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "seasonal_asa.CreatedAssetID#0",
+        "0x536561736f6e616c206974656d20697373756564"
+      ]
+    },
+    "1195": {
+      "op": "log",
+      "stack_out": [
+        "seasonal_asa.CreatedAssetID#0"
+      ]
+    },
+    "1196": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "1197": {
+      "subroutine": "smart_contracts.algorealm.contract.AlgoRealmGameManager.craft_items",
+      "params": {
+        "material_1#0": "uint64",
+        "material_2#0": "uint64",
+        "recipe_id#0": "uint64"
+      },
+      "block": "craft_items",
+      "stack_in": [],
+      "op": "proto 3 1"
+    },
+    "1200": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "1202": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "1203": {
+      "op": "bytec_1 // \"is_registered\"",
+      "defined_out": [
+        "\"is_registered\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"is_registered\""
+      ]
+    },
+    "1204": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "1205": {
+      "error": "check self.is_registered exists for account",
+      "op": "assert // check self.is_registered exists for account",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "1206": {
+      "op": "bytec_2 // 0x00",
+      "defined_out": [
+        "0x00",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "0x00"
+      ]
+    },
+    "1207": {
+      "op": "!=",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "1208": {
+      "error": "Only registered players can craft",
+      "op": "assert // Only registered players can craft",
+      "stack_out": []
+    },
+    "1209": {
+      "op": "itxn_begin"
+    },
+    "1210": {
+      "op": "global MinTxnFee",
+      "defined_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1212": {
+      "op": "global CurrentApplicationAddress",
+      "defined_out": [
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0"
+      ]
+    },
+    "1214": {
+      "op": "bytec 11 // 0x435241465445445f4954454d",
+      "defined_out": [
+        "0x435241465445445f4954454d",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0",
+        "0x435241465445445f4954454d"
+      ]
+    },
+    "1216": {
+      "op": "itxn_field Note",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "inner_txn_params%0%%param_ConfigAssetManager_idx_0#0"
+      ]
+    },
+    "1218": {
+      "op": "itxn_field ConfigAssetManager",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1220": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "0"
+      ]
+    },
+    "1221": {
+      "op": "itxn_field ConfigAssetDefaultFrozen",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1223": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "0"
+      ]
+    },
+    "1224": {
+      "op": "itxn_field ConfigAssetDecimals",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1226": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "1",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "1"
+      ]
+    },
+    "1227": {
+      "op": "itxn_field ConfigAssetTotal",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1229": {
+      "op": "pushbytes \"ALGCRAFT\"",
+      "defined_out": [
+        "\"ALGCRAFT\"",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "\"ALGCRAFT\""
+      ]
+    },
+    "1239": {
+      "op": "itxn_field ConfigAssetUnitName",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1241": {
+      "op": "bytec 11 // \"CRAFTED_ITEM\"",
+      "defined_out": [
+        "\"CRAFTED_ITEM\"",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "\"CRAFTED_ITEM\""
+      ]
+    },
+    "1243": {
+      "op": "itxn_field ConfigAssetName",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1245": {
+      "op": "intc_2 // acfg",
+      "defined_out": [
+        "acfg",
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0",
+        "acfg"
+      ]
+    },
+    "1246": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "inner_txn_params%0%%param_Fee_idx_0#0"
+      ]
+    },
+    "1248": {
+      "op": "itxn_field Fee",
+      "stack_out": []
+    },
+    "1250": {
+      "op": "itxn_submit"
+    },
+    "1251": {
+      "op": "itxn CreatedAssetID",
+      "defined_out": [
+        "crafted_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "crafted_asa.CreatedAssetID#0"
+      ]
+    },
+    "1253": {
+      "op": "itxn_begin"
+    },
+    "1254": {
+      "op": "global MinTxnFee",
+      "defined_out": [
+        "crafted_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "crafted_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "1256": {
+      "op": "txn Sender",
+      "defined_out": [
+        "crafted_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_AssetReceiver_idx_0#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "crafted_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "inner_txn_params%1%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "1258": {
+      "op": "dig 2",
+      "defined_out": [
+        "crafted_asa.CreatedAssetID#0",
+        "crafted_asa.CreatedAssetID#0 (copy)",
+        "inner_txn_params%1%%param_AssetReceiver_idx_0#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "crafted_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "inner_txn_params%1%%param_AssetReceiver_idx_0#0",
+        "crafted_asa.CreatedAssetID#0 (copy)"
+      ]
+    },
+    "1260": {
+      "op": "itxn_field XferAsset",
+      "stack_out": [
+        "crafted_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "inner_txn_params%1%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "1262": {
+      "op": "intc_1 // 1",
+      "stack_out": [
+        "crafted_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "inner_txn_params%1%%param_AssetReceiver_idx_0#0",
+        "1"
+      ]
+    },
+    "1263": {
+      "op": "itxn_field AssetAmount",
+      "stack_out": [
+        "crafted_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "inner_txn_params%1%%param_AssetReceiver_idx_0#0"
+      ]
+    },
+    "1265": {
+      "op": "itxn_field AssetReceiver",
+      "stack_out": [
+        "crafted_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "1267": {
+      "op": "intc_3 // axfer",
+      "defined_out": [
+        "axfer",
+        "crafted_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ],
+      "stack_out": [
+        "crafted_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0",
+        "axfer"
+      ]
+    },
+    "1268": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "crafted_asa.CreatedAssetID#0",
+        "inner_txn_params%1%%param_Fee_idx_0#0"
+      ]
+    },
+    "1270": {
+      "op": "itxn_field Fee",
+      "stack_out": [
+        "crafted_asa.CreatedAssetID#0"
+      ]
+    },
+    "1272": {
+      "op": "itxn_submit"
+    },
+    "1273": {
+      "op": "pushbytes 0x4974656d2063726166746564",
+      "defined_out": [
+        "0x4974656d2063726166746564",
+        "crafted_asa.CreatedAssetID#0"
+      ],
+      "stack_out": [
+        "crafted_asa.CreatedAssetID#0",
+        "0x4974656d2063726166746564"
+      ]
+    },
+    "1287": {
+      "op": "log",
+      "stack_out": [
+        "crafted_asa.CreatedAssetID#0"
+      ]
+    },
+    "1288": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "1289": {
+      "subroutine": "smart_contracts.algorealm.contract.AlgoRealmGameManager.get_player_stats",
+      "params": {
+        "player#0": "bytes"
+      },
+      "block": "get_player_stats",
+      "stack_in": [],
+      "op": "proto 1 3"
+    },
+    "1292": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "player#0 (copy)"
+      ],
+      "stack_out": [
+        "player#0 (copy)"
+      ]
+    },
+    "1294": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "player#0 (copy)"
+      ],
+      "stack_out": [
+        "player#0 (copy)",
+        "0"
+      ]
+    },
+    "1295": {
+      "op": "bytec_1 // \"is_registered\"",
+      "defined_out": [
+        "\"is_registered\"",
+        "0",
+        "player#0 (copy)"
+      ],
+      "stack_out": [
+        "player#0 (copy)",
+        "0",
+        "\"is_registered\""
+      ]
+    },
+    "1296": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "1297": {
+      "error": "check self.is_registered exists for account",
+      "op": "assert // check self.is_registered exists for account",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "1298": {
+      "op": "bytec_2 // 0x00",
+      "defined_out": [
+        "0x00",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "0x00"
+      ]
+    },
+    "1299": {
+      "op": "!=",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "1300": {
+      "error": "Player not registered",
+      "op": "assert // Player not registered",
+      "stack_out": []
+    },
+    "1301": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "player#0 (copy)"
+      ]
+    },
+    "1303": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "player#0 (copy)",
+        "0"
+      ]
+    },
+    "1304": {
+      "op": "bytec 8 // \"player_level\"",
+      "defined_out": [
+        "\"player_level\"",
+        "0",
+        "player#0 (copy)"
+      ],
+      "stack_out": [
+        "player#0 (copy)",
+        "0",
+        "\"player_level\""
+      ]
+    },
+    "1306": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "1307": {
+      "error": "check self.player_level exists for account",
+      "op": "assert // check self.player_level exists for account",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "1308": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "maybe_value%1#0",
+        "player#0 (copy)"
+      ]
+    },
+    "1310": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "maybe_value%1#0",
+        "player#0 (copy)",
+        "0"
+      ]
+    },
+    "1311": {
+      "op": "bytec 9 // \"player_experience\"",
+      "defined_out": [
+        "\"player_experience\"",
+        "0",
+        "maybe_value%1#0",
+        "player#0 (copy)"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "player#0 (copy)",
+        "0",
+        "\"player_experience\""
+      ]
+    },
+    "1313": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%2#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "maybe_exists%2#0"
+      ]
+    },
+    "1314": {
+      "error": "check self.player_experience exists for account",
+      "op": "assert // check self.player_experience exists for account",
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0"
+      ]
+    },
+    "1315": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "player#0 (copy)"
+      ]
+    },
+    "1317": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "player#0 (copy)",
+        "0"
+      ]
+    },
+    "1318": {
+      "op": "bytec_3 // \"player_recovery_count\"",
+      "defined_out": [
+        "\"player_recovery_count\"",
+        "0",
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "player#0 (copy)"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "player#0 (copy)",
+        "0",
+        "\"player_recovery_count\""
+      ]
+    },
+    "1319": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%3#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "maybe_value%3#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "maybe_value%3#0",
+        "maybe_exists%3#0"
+      ]
+    },
+    "1320": {
+      "error": "check self.player_recovery_count exists for account",
+      "op": "assert // check self.player_recovery_count exists for account",
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "maybe_value%3#0"
+      ]
+    },
+    "1321": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "1322": {
+      "subroutine": "smart_contracts.algorealm.contract.AlgoRealmGameManager.advance_season",
+      "params": {},
+      "block": "advance_season",
+      "stack_in": [],
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "1324": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "1325": {
+      "op": "bytec 7 // \"game_master\"",
+      "defined_out": [
+        "\"game_master\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"game_master\""
+      ]
+    },
+    "1327": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "1328": {
+      "error": "check self.game_master exists",
+      "op": "assert // check self.game_master exists",
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "1329": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "1330": {
+      "error": "Only game master can advance season",
+      "op": "assert // Only game master can advance season",
+      "stack_out": []
+    },
+    "1331": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "0"
+      ]
+    },
+    "1332": {
+      "op": "bytec 6 // \"current_season\"",
+      "defined_out": [
+        "\"current_season\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"current_season\""
+      ]
+    },
+    "1334": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "1335": {
+      "error": "check self.current_season exists",
+      "op": "assert // check self.current_season exists",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "1336": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "1",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "1"
+      ]
+    },
+    "1337": {
+      "op": "+",
+      "defined_out": [
+        "materialized_values%0#0"
+      ],
+      "stack_out": [
+        "materialized_values%0#0"
+      ]
+    },
+    "1338": {
+      "op": "bytec 6 // \"current_season\"",
+      "stack_out": [
+        "materialized_values%0#0",
+        "\"current_season\""
+      ]
+    },
+    "1340": {
+      "op": "dig 1",
+      "defined_out": [
+        "\"current_season\"",
+        "materialized_values%0#0",
+        "materialized_values%0#0 (copy)"
+      ],
+      "stack_out": [
+        "materialized_values%0#0",
+        "\"current_season\"",
+        "materialized_values%0#0 (copy)"
+      ]
+    },
+    "1342": {
+      "op": "app_global_put",
+      "stack_out": [
+        "materialized_values%0#0"
+      ]
+    },
+    "1343": {
+      "op": "pushbytes 0x536561736f6e20616476616e636564",
+      "defined_out": [
+        "0x536561736f6e20616476616e636564",
+        "materialized_values%0#0"
+      ],
+      "stack_out": [
+        "materialized_values%0#0",
+        "0x536561736f6e20616476616e636564"
+      ]
+    },
+    "1360": {
+      "op": "log",
+      "stack_out": [
+        "materialized_values%0#0"
+      ]
+    },
+    "1361": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "1362": {
+      "subroutine": "smart_contracts.algorealm.contract.AlgoRealmGameManager.get_game_info",
+      "params": {},
+      "block": "get_game_info",
+      "stack_in": [],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "1363": {
+      "op": "bytec 4 // \"total_players\"",
+      "defined_out": [
+        "\"total_players\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"total_players\""
+      ]
+    },
+    "1365": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "1366": {
+      "error": "check self.total_players exists",
+      "op": "assert // check self.total_players exists",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "1367": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "maybe_value%0#0",
+        "0"
+      ]
+    },
+    "1368": {
+      "op": "bytec 5 // \"total_items_created\"",
+      "defined_out": [
+        "\"total_items_created\"",
+        "0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "0",
+        "\"total_items_created\""
+      ]
+    },
+    "1370": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%0#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "1371": {
+      "error": "check self.total_items_created exists",
+      "op": "assert // check self.total_items_created exists",
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "1372": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "0"
+      ]
+    },
+    "1373": {
+      "op": "bytec 6 // \"current_season\"",
+      "defined_out": [
+        "\"current_season\"",
+        "0",
+        "maybe_value%0#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "0",
+        "\"current_season\""
+      ]
+    },
+    "1375": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%2#0",
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "maybe_exists%2#0"
+      ]
+    },
+    "1376": {
+      "error": "check self.current_season exists",
+      "op": "assert // check self.current_season exists",
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "maybe_value%2#0"
+      ]
+    },
+    "1377": {
+      "retsub": true,
+      "op": "retsub"
+    }
+  }
+}
