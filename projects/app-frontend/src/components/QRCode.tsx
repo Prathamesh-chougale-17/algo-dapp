@@ -51,6 +51,32 @@ interface QRModalProps {
 }
 
 export function QRModal({ isOpen, onClose, title, value }: QRModalProps) {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  useEffect(() => {
+    if (canvasRef.current && value && isOpen) {
+      QRCodeLib.toCanvas(canvasRef.current, value, {
+        width: 250,
+        margin: 2,
+        color: {
+          dark: '#000000',
+          light: '#FFFFFF',
+        },
+      }).catch(() => {
+        // QR code generation failed silently
+      })
+    }
+  }, [value, isOpen])
+
+  const downloadQR = () => {
+    if (canvasRef.current) {
+      const link = document.createElement('a')
+      link.download = `QR_${title.replace(/\s+/g, '_')}_${Date.now()}.png`
+      link.href = canvasRef.current.toDataURL()
+      link.click()
+    }
+  }
+
   if (!isOpen) return null
 
   return (
@@ -62,13 +88,19 @@ export function QRModal({ isOpen, onClose, title, value }: QRModalProps) {
             ×
           </button>
         </div>
-        <QRCode value={value} size={250} className="w-full" />
+        <div className="flex flex-col items-center">
+          <canvas ref={canvasRef} className="border border-gray-300 rounded mb-2" />
+          <p className="text-xs text-gray-600 mt-2 break-all max-w-full text-center">{value}</p>
+        </div>
         <div className="mt-4 flex gap-2">
           <button
             onClick={() => navigator.clipboard.writeText(value)}
             className="flex-1 bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 text-sm"
           >
-            Copy to Clipboard
+            📋 Copy
+          </button>
+          <button onClick={downloadQR} className="flex-1 bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 text-sm">
+            💾 Download
           </button>
           <button onClick={onClose} className="flex-1 bg-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-400 text-sm">
             Close
