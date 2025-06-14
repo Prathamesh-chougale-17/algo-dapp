@@ -15,14 +15,16 @@ name = 'app-contracts'
 artifacts = 'smart_contracts/artifacts'
 
 [project.deploy]
-command = "poetry run python -m smart_contracts deploy"
+command = "poetry run python deploy_ci.py testnet"
 environment_secrets = []
 
 [project.deploy.localnet]
+command = "poetry run python deploy_ci.py localnet"
 environment_secrets = []
 
 [project.deploy.testnet]
 # CI-friendly: will skip if credentials not available
+command = "poetry run python deploy_ci.py testnet"
 environment_secrets = []
 
 [project.run]

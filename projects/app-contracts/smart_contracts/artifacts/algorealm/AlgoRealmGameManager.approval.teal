@@ -5,7 +5,7 @@
 main:
     intcblock 0 1 3
     bytecblock 0x151f7c75 "is_registered" 0x00 "player_recovery_count" "total_players" "total_items_created" "current_season" "max_recovery_per_item" "game_master" "player_level" "player_experience" 0x435241465445445f4954454d
-    // smart_contracts/algorealm/contract.py:6
+    // smart_contracts/algorealm/contract.py:20
     // class AlgoRealmGameManager(ARC4Contract):
     txn NumAppArgs
     bz main_after_if_else@16
@@ -14,25 +14,25 @@ main:
     match main_initialize_game_route@5 main_register_player_route@6 main_create_game_item_route@7 main_recover_lost_item_route@8 main_seasonal_event_reissue_route@9 main_craft_items_route@10 main_get_player_stats_route@11 main_advance_season_route@12 main_get_game_info_route@13 main_claim_item_route@14 main_get_recovery_status_route@15
 
 main_after_if_else@16:
-    // smart_contracts/algorealm/contract.py:6
+    // smart_contracts/algorealm/contract.py:20
     // class AlgoRealmGameManager(ARC4Contract):
     intc_0 // 0
     return
 
 main_get_recovery_status_route@15:
-    // smart_contracts/algorealm/contract.py:283
+    // smart_contracts/algorealm/contract.py:298
     // @abimethod(readonly=True)
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // smart_contracts/algorealm/contract.py:6
+    // smart_contracts/algorealm/contract.py:20
     // class AlgoRealmGameManager(ARC4Contract):
     txna ApplicationArgs 1
     btoi
     txnas Accounts
-    // smart_contracts/algorealm/contract.py:283
+    // smart_contracts/algorealm/contract.py:298
     // @abimethod(readonly=True)
     callsub get_recovery_status
     swap
@@ -48,19 +48,19 @@ main_get_recovery_status_route@15:
     return
 
 main_claim_item_route@14:
-    // smart_contracts/algorealm/contract.py:259
+    // smart_contracts/algorealm/contract.py:274
     // @abimethod()
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // smart_contracts/algorealm/contract.py:6
+    // smart_contracts/algorealm/contract.py:20
     // class AlgoRealmGameManager(ARC4Contract):
     txna ApplicationArgs 1
     btoi
     txnas Assets
-    // smart_contracts/algorealm/contract.py:259
+    // smart_contracts/algorealm/contract.py:274
     // @abimethod()
     callsub claim_item
     dup
@@ -77,7 +77,7 @@ main_claim_item_route@14:
     return
 
 main_get_game_info_route@13:
-    // smart_contracts/algorealm/contract.py:250
+    // smart_contracts/algorealm/contract.py:265
     // @abimethod(readonly=True)
     txn OnCompletion
     !
@@ -103,7 +103,7 @@ main_get_game_info_route@13:
     return
 
 main_advance_season_route@12:
-    // smart_contracts/algorealm/contract.py:242
+    // smart_contracts/algorealm/contract.py:255
     // @abimethod()
     txn OnCompletion
     !
@@ -120,19 +120,19 @@ main_advance_season_route@12:
     return
 
 main_get_player_stats_route@11:
-    // smart_contracts/algorealm/contract.py:232
+    // smart_contracts/algorealm/contract.py:245
     // @abimethod(readonly=True)
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // smart_contracts/algorealm/contract.py:6
+    // smart_contracts/algorealm/contract.py:20
     // class AlgoRealmGameManager(ARC4Contract):
     txna ApplicationArgs 1
     btoi
     txnas Accounts
-    // smart_contracts/algorealm/contract.py:232
+    // smart_contracts/algorealm/contract.py:245
     // @abimethod(readonly=True)
     callsub get_player_stats
     uncover 2
@@ -153,14 +153,14 @@ main_get_player_stats_route@11:
     return
 
 main_craft_items_route@10:
-    // smart_contracts/algorealm/contract.py:195
+    // smart_contracts/algorealm/contract.py:211
     // @abimethod()
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // smart_contracts/algorealm/contract.py:6
+    // smart_contracts/algorealm/contract.py:20
     // class AlgoRealmGameManager(ARC4Contract):
     txna ApplicationArgs 1
     btoi
@@ -170,7 +170,7 @@ main_craft_items_route@10:
     txnas Assets
     txna ApplicationArgs 3
     btoi
-    // smart_contracts/algorealm/contract.py:195
+    // smart_contracts/algorealm/contract.py:211
     // @abimethod()
     callsub craft_items
     itob
@@ -182,14 +182,14 @@ main_craft_items_route@10:
     return
 
 main_seasonal_event_reissue_route@9:
-    // smart_contracts/algorealm/contract.py:159
+    // smart_contracts/algorealm/contract.py:178
     // @abimethod()
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // smart_contracts/algorealm/contract.py:6
+    // smart_contracts/algorealm/contract.py:20
     // class AlgoRealmGameManager(ARC4Contract):
     txna ApplicationArgs 1
     extract 2 0
@@ -198,7 +198,7 @@ main_seasonal_event_reissue_route@9:
     txna ApplicationArgs 3
     btoi
     txnas Accounts
-    // smart_contracts/algorealm/contract.py:159
+    // smart_contracts/algorealm/contract.py:178
     // @abimethod()
     callsub seasonal_event_reissue
     itob
@@ -210,14 +210,14 @@ main_seasonal_event_reissue_route@9:
     return
 
 main_recover_lost_item_route@8:
-    // smart_contracts/algorealm/contract.py:104
+    // smart_contracts/algorealm/contract.py:118
     // @abimethod()
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // smart_contracts/algorealm/contract.py:6
+    // smart_contracts/algorealm/contract.py:20
     // class AlgoRealmGameManager(ARC4Contract):
     txna ApplicationArgs 1
     btoi
@@ -227,7 +227,7 @@ main_recover_lost_item_route@8:
     txna ApplicationArgs 3
     btoi
     txnas Accounts
-    // smart_contracts/algorealm/contract.py:104
+    // smart_contracts/algorealm/contract.py:118
     // @abimethod()
     callsub recover_lost_item
     itob
@@ -239,14 +239,14 @@ main_recover_lost_item_route@8:
     return
 
 main_create_game_item_route@7:
-    // smart_contracts/algorealm/contract.py:64
+    // smart_contracts/algorealm/contract.py:78
     // @abimethod()
     txn OnCompletion
     !
     assert // OnCompletion is not NoOp
     txn ApplicationID
     assert // can only call when not creating
-    // smart_contracts/algorealm/contract.py:6
+    // smart_contracts/algorealm/contract.py:20
     // class AlgoRealmGameManager(ARC4Contract):
     txna ApplicationArgs 1
     btoi
@@ -263,7 +263,7 @@ main_create_game_item_route@7:
     btoi
     txna ApplicationArgs 7
     extract 2 0
-    // smart_contracts/algorealm/contract.py:64
+    // smart_contracts/algorealm/contract.py:78
     // @abimethod()
     callsub create_game_item
     itob
@@ -275,7 +275,7 @@ main_create_game_item_route@7:
     return
 
 main_register_player_route@6:
-    // smart_contracts/algorealm/contract.py:36
+    // smart_contracts/algorealm/contract.py:50
     // @abimethod(allow_actions=["NoOp", "OptIn"])
     intc_1 // 1
     txn OnCompletion
@@ -285,11 +285,11 @@ main_register_player_route@6:
     assert // OnCompletion is not one of NoOp, OptIn
     txn ApplicationID
     assert // can only call when not creating
-    // smart_contracts/algorealm/contract.py:6
+    // smart_contracts/algorealm/contract.py:20
     // class AlgoRealmGameManager(ARC4Contract):
     txna ApplicationArgs 1
     extract 2 0
-    // smart_contracts/algorealm/contract.py:36
+    // smart_contracts/algorealm/contract.py:50
     // @abimethod(allow_actions=["NoOp", "OptIn"])
     callsub register_player
     dup
@@ -306,7 +306,7 @@ main_register_player_route@6:
     return
 
 main_initialize_game_route@5:
-    // smart_contracts/algorealm/contract.py:26
+    // smart_contracts/algorealm/contract.py:40
     // @abimethod(create="require")
     txn OnCompletion
     !
@@ -331,32 +331,32 @@ main_initialize_game_route@5:
 
 // smart_contracts.algorealm.contract.AlgoRealmGameManager.initialize_game() -> bytes:
 initialize_game:
-    // smart_contracts/algorealm/contract.py:29
+    // smart_contracts/algorealm/contract.py:43
     // self.total_players.value = UInt64(0)
     bytec 4 // "total_players"
     intc_0 // 0
     app_global_put
-    // smart_contracts/algorealm/contract.py:30
+    // smart_contracts/algorealm/contract.py:44
     // self.total_items_created.value = UInt64(0)
     bytec 5 // "total_items_created"
     intc_0 // 0
     app_global_put
-    // smart_contracts/algorealm/contract.py:31
+    // smart_contracts/algorealm/contract.py:45
     // self.current_season.value = UInt64(1)
     bytec 6 // "current_season"
     intc_1 // 1
     app_global_put
-    // smart_contracts/algorealm/contract.py:32
+    // smart_contracts/algorealm/contract.py:46
     // self.max_recovery_per_item.value = UInt64(3)
     bytec 7 // "max_recovery_per_item"
     intc_2 // 3
     app_global_put
-    // smart_contracts/algorealm/contract.py:33
+    // smart_contracts/algorealm/contract.py:47
     // self.game_master.value = Txn.sender  # Set the creator as game master
     bytec 8 // "game_master"
     txn Sender
     app_global_put
-    // smart_contracts/algorealm/contract.py:34
+    // smart_contracts/algorealm/contract.py:48
     // return String("AlgoRealm initialized!")
     pushbytes "AlgoRealm initialized!"
     retsub
@@ -364,49 +364,49 @@ initialize_game:
 
 // smart_contracts.algorealm.contract.AlgoRealmGameManager.register_player(player_name: bytes) -> bytes:
 register_player:
-    // smart_contracts/algorealm/contract.py:36-37
+    // smart_contracts/algorealm/contract.py:50-51
     // @abimethod(allow_actions=["NoOp", "OptIn"])
     // def register_player(self, player_name: String) -> String:
     proto 1 1
-    // smart_contracts/algorealm/contract.py:39-40
+    // smart_contracts/algorealm/contract.py:53-54
     // # Check if this is an opt-in call
     // if Txn.on_completion == OnCompleteAction.OptIn:
     txn OnCompletion
     intc_1 // OptIn
     ==
     bz register_player_after_if_else@2
-    // smart_contracts/algorealm/contract.py:41-42
+    // smart_contracts/algorealm/contract.py:55-56
     // # Initialize default values for local state when opting in
     // self.player_level[Txn.sender] = UInt64(0)
     txn Sender
     bytec 9 // "player_level"
     intc_0 // 0
     app_local_put
-    // smart_contracts/algorealm/contract.py:43
+    // smart_contracts/algorealm/contract.py:57
     // self.player_experience[Txn.sender] = UInt64(0)
     txn Sender
     bytec 10 // "player_experience"
     intc_0 // 0
     app_local_put
-    // smart_contracts/algorealm/contract.py:44
+    // smart_contracts/algorealm/contract.py:58
     // self.player_recovery_count[Txn.sender] = UInt64(0)
     txn Sender
     bytec_3 // "player_recovery_count"
     intc_0 // 0
     app_local_put
-    // smart_contracts/algorealm/contract.py:45
+    // smart_contracts/algorealm/contract.py:59
     // self.is_registered[Txn.sender] = Bool(False)
     txn Sender
     bytec_1 // "is_registered"
     bytec_2 // 0x00
     app_local_put
-    // smart_contracts/algorealm/contract.py:46
+    // smart_contracts/algorealm/contract.py:60
     // return String("Opted in to AlgoRealm!")
     pushbytes "Opted in to AlgoRealm!"
     retsub
 
 register_player_after_if_else@2:
-    // smart_contracts/algorealm/contract.py:48-50
+    // smart_contracts/algorealm/contract.py:62-64
     // # For NoOp calls, handle registration
     // # Now we can safely access local state since it was initialized on opt-in
     // if self.is_registered[Txn.sender]:
@@ -418,38 +418,38 @@ register_player_after_if_else@2:
     bytec_2 // 0x00
     !=
     bz register_player_after_if_else@4
-    // smart_contracts/algorealm/contract.py:51
+    // smart_contracts/algorealm/contract.py:65
     // return String("Player already registered")
     pushbytes "Player already registered"
     retsub
 
 register_player_after_if_else@4:
-    // smart_contracts/algorealm/contract.py:53-54
+    // smart_contracts/algorealm/contract.py:67-68
     // # Initialize player stats for actual registration
     // self.player_level[Txn.sender] = UInt64(1)
     txn Sender
     bytec 9 // "player_level"
     intc_1 // 1
     app_local_put
-    // smart_contracts/algorealm/contract.py:55
+    // smart_contracts/algorealm/contract.py:69
     // self.player_experience[Txn.sender] = UInt64(0)
     txn Sender
     bytec 10 // "player_experience"
     intc_0 // 0
     app_local_put
-    // smart_contracts/algorealm/contract.py:56
+    // smart_contracts/algorealm/contract.py:70
     // self.player_recovery_count[Txn.sender] = UInt64(0)
     txn Sender
     bytec_3 // "player_recovery_count"
     intc_0 // 0
     app_local_put
-    // smart_contracts/algorealm/contract.py:57
+    // smart_contracts/algorealm/contract.py:71
     // self.is_registered[Txn.sender] = Bool(True)
     txn Sender
     bytec_1 // "is_registered"
     pushbytes 0x80
     app_local_put
-    // smart_contracts/algorealm/contract.py:59
+    // smart_contracts/algorealm/contract.py:73
     // self.total_players.value += UInt64(1)
     intc_0 // 0
     bytec 4 // "total_players"
@@ -460,11 +460,11 @@ register_player_after_if_else@4:
     bytec 4 // "total_players"
     swap
     app_global_put
-    // smart_contracts/algorealm/contract.py:61
+    // smart_contracts/algorealm/contract.py:75
     // log(player_name.bytes)
     frame_dig -1
     log
-    // smart_contracts/algorealm/contract.py:62
+    // smart_contracts/algorealm/contract.py:76
     // return String("Welcome to AlgoRealm!")
     pushbytes "Welcome to AlgoRealm!"
     retsub
@@ -472,7 +472,7 @@ register_player_after_if_else@4:
 
 // smart_contracts.algorealm.contract.AlgoRealmGameManager.create_game_item(recipient: bytes, item_name: bytes, item_type: bytes, rarity: bytes, attack_power: uint64, defense_power: uint64, special_effect: bytes) -> uint64:
 create_game_item:
-    // smart_contracts/algorealm/contract.py:64-74
+    // smart_contracts/algorealm/contract.py:78-88
     // @abimethod()
     // def create_game_item(
     //     self,
@@ -482,10 +482,10 @@ create_game_item:
     //     rarity: String,
     //     attack_power: UInt64,
     //     defense_power: UInt64,
-    //     special_effect: String
+    //     special_effect: String,
     // ) -> UInt64:
     proto 7 1
-    // smart_contracts/algorealm/contract.py:76
+    // smart_contracts/algorealm/contract.py:90
     // assert Txn.sender == self.game_master.value, "Only game master can create items"
     txn Sender
     intc_0 // 0
@@ -494,7 +494,7 @@ create_game_item:
     assert // check self.game_master exists
     ==
     assert // Only game master can create items
-    // smart_contracts/algorealm/contract.py:77
+    // smart_contracts/algorealm/contract.py:91
     // assert self.is_registered[recipient], "Recipient must be registered player"
     frame_dig -7
     intc_0 // 0
@@ -504,7 +504,7 @@ create_game_item:
     bytec_2 // 0x00
     !=
     assert // Recipient must be registered player
-    // smart_contracts/algorealm/contract.py:81-94
+    // smart_contracts/algorealm/contract.py:95-108
     // item_asa = itxn.AssetConfig(
     //     asset_name=item_name,
     //     unit_name=item_unit_name,
@@ -517,23 +517,23 @@ create_game_item:
     //     clawback=Global.current_application_address,
     //     fee=Global.min_txn_fee,  # Use minimum transaction fee
     //     # Store basic item info in note field
-    //     note=op.concat(item_name.bytes, rarity.bytes)
+    //     note=op.concat(item_name.bytes, rarity.bytes),
     // ).submit()
     itxn_begin
-    // smart_contracts/algorealm/contract.py:91
+    // smart_contracts/algorealm/contract.py:105
     // fee=Global.min_txn_fee,  # Use minimum transaction fee
     global MinTxnFee
-    // smart_contracts/algorealm/contract.py:87
+    // smart_contracts/algorealm/contract.py:101
     // manager=Global.current_application_address,
     global CurrentApplicationAddress
-    // smart_contracts/algorealm/contract.py:88-90
+    // smart_contracts/algorealm/contract.py:102-104
     // reserve=Global.current_application_address,
     // freeze=Global.current_application_address,
     // clawback=Global.current_application_address,
     dupn 3
-    // smart_contracts/algorealm/contract.py:92-93
+    // smart_contracts/algorealm/contract.py:106-107
     // # Store basic item info in note field
-    // note=op.concat(item_name.bytes, rarity.bytes)
+    // note=op.concat(item_name.bytes, rarity.bytes),
     frame_dig -6
     frame_dig -4
     concat
@@ -542,31 +542,31 @@ create_game_item:
     itxn_field ConfigAssetFreeze
     itxn_field ConfigAssetReserve
     itxn_field ConfigAssetManager
-    // smart_contracts/algorealm/contract.py:86
+    // smart_contracts/algorealm/contract.py:100
     // default_frozen=False,
     intc_0 // 0
     itxn_field ConfigAssetDefaultFrozen
-    // smart_contracts/algorealm/contract.py:85
+    // smart_contracts/algorealm/contract.py:99
     // decimals=UInt64(0),
     intc_0 // 0
     itxn_field ConfigAssetDecimals
-    // smart_contracts/algorealm/contract.py:84
+    // smart_contracts/algorealm/contract.py:98
     // total=UInt64(1),  # Unique item
     intc_1 // 1
     itxn_field ConfigAssetTotal
-    // smart_contracts/algorealm/contract.py:79-80
+    // smart_contracts/algorealm/contract.py:93-94
     // # Create ASA for the item (simplified without complex metadata struct)
     // item_unit_name = String("ALGITEM")
     pushbytes "ALGITEM"
     itxn_field ConfigAssetUnitName
     frame_dig -6
     itxn_field ConfigAssetName
-    // smart_contracts/algorealm/contract.py:81
+    // smart_contracts/algorealm/contract.py:95
     // item_asa = itxn.AssetConfig(
     intc_2 // acfg
     itxn_field TypeEnum
     itxn_field Fee
-    // smart_contracts/algorealm/contract.py:81-94
+    // smart_contracts/algorealm/contract.py:95-108
     // item_asa = itxn.AssetConfig(
     //     asset_name=item_name,
     //     unit_name=item_unit_name,
@@ -579,11 +579,11 @@ create_game_item:
     //     clawback=Global.current_application_address,
     //     fee=Global.min_txn_fee,  # Use minimum transaction fee
     //     # Store basic item info in note field
-    //     note=op.concat(item_name.bytes, rarity.bytes)
+    //     note=op.concat(item_name.bytes, rarity.bytes),
     // ).submit()
     itxn_submit
     itxn CreatedAssetID
-    // smart_contracts/algorealm/contract.py:99
+    // smart_contracts/algorealm/contract.py:113
     // self.total_items_created.value += UInt64(1)
     intc_0 // 0
     bytec 5 // "total_items_created"
@@ -594,54 +594,66 @@ create_game_item:
     bytec 5 // "total_items_created"
     swap
     app_global_put
-    // smart_contracts/algorealm/contract.py:101
+    // smart_contracts/algorealm/contract.py:115
     // log(Bytes(b"Item created"))
     pushbytes 0x4974656d2063726561746564
     log
-    // smart_contracts/algorealm/contract.py:102
+    // smart_contracts/algorealm/contract.py:116
     // return item_asa.created_asset.id
     retsub
 
 
 // smart_contracts.algorealm.contract.AlgoRealmGameManager.recover_lost_item(original_item_id: uint64, recovery_quest_proof: bytes, new_recipient: bytes) -> uint64:
 recover_lost_item:
-    // smart_contracts/algorealm/contract.py:104-110
+    // smart_contracts/algorealm/contract.py:118-124
     // @abimethod()
     // def recover_lost_item(
     //     self,
     //     original_item_id: Asset,
     //     recovery_quest_proof: Bytes,
-    //     new_recipient: Account
+    //     new_recipient: Account,
     // ) -> UInt64:
     proto 3 1
-    // smart_contracts/algorealm/contract.py:115
-    // assert self.is_registered[Txn.sender], "Only registered players can recover items"
+    // smart_contracts/algorealm/contract.py:130
+    // Txn.sender
     txn Sender
+    // smart_contracts/algorealm/contract.py:129-131
+    // assert self.is_registered[
+    //     Txn.sender
+    // ], "Only registered players can recover items"
     intc_0 // 0
+    // smart_contracts/algorealm/contract.py:129
+    // assert self.is_registered[
     bytec_1 // "is_registered"
+    // smart_contracts/algorealm/contract.py:129-131
+    // assert self.is_registered[
+    //     Txn.sender
+    // ], "Only registered players can recover items"
     app_local_get_ex
     assert // check self.is_registered exists for account
     bytec_2 // 0x00
     !=
     assert // Only registered players can recover items
-    // smart_contracts/algorealm/contract.py:117-118
+    // smart_contracts/algorealm/contract.py:133-136
     // # Get original item metadata
-    // original_metadata_response = op.AssetParamsGet.asset_metadata_hash(original_item_id)
+    // original_metadata_response = op.AssetParamsGet.asset_metadata_hash(
+    //     original_item_id
+    // )
     frame_dig -3
     asset_params_get AssetMetadataHash
     pop
-    // smart_contracts/algorealm/contract.py:119
+    // smart_contracts/algorealm/contract.py:137
     // assert original_metadata_response[0], "Original item not found"
     len
     assert // Original item not found
-    // smart_contracts/algorealm/contract.py:121-122
+    // smart_contracts/algorealm/contract.py:139-140
     // # Verify recovery quest completion (simplified - in real game, check quest system)
     // assert recovery_quest_proof != Bytes(), "Must provide recovery quest proof"
     frame_dig -2
     pushbytes 0x
     !=
     assert // Must provide recovery quest proof
-    // smart_contracts/algorealm/contract.py:124-125
+    // smart_contracts/algorealm/contract.py:142-143
     // # Check recovery limits
     // current_recovery_count = self.player_recovery_count[Txn.sender]
     txn Sender
@@ -649,31 +661,35 @@ recover_lost_item:
     bytec_3 // "player_recovery_count"
     app_local_get_ex
     assert // check self.player_recovery_count exists for account
-    // smart_contracts/algorealm/contract.py:126
-    // assert current_recovery_count < self.max_recovery_per_item.value, "Recovery limit reached - max 3 recoveries per player"
+    // smart_contracts/algorealm/contract.py:145
+    // current_recovery_count < self.max_recovery_per_item.value
     intc_0 // 0
     bytec 7 // "max_recovery_per_item"
     app_global_get_ex
     assert // check self.max_recovery_per_item exists
     dig 1
     >
+    // smart_contracts/algorealm/contract.py:144-146
+    // assert (
+    //     current_recovery_count < self.max_recovery_per_item.value
+    // ), "Recovery limit reached - max 3 recoveries per player"
     assert // Recovery limit reached - max 3 recoveries per player
-    // smart_contracts/algorealm/contract.py:128-129
+    // smart_contracts/algorealm/contract.py:148-149
     // # Get original item name for new ASA
     // original_name_response = op.AssetParamsGet.asset_name(original_item_id)
     frame_dig -3
     asset_params_get AssetName
     pop
-    // smart_contracts/algorealm/contract.py:130
+    // smart_contracts/algorealm/contract.py:150
     // assert original_name_response[0], "Cannot get original item name"
     len
     assert // Cannot get original item name
-    // smart_contracts/algorealm/contract.py:135
+    // smart_contracts/algorealm/contract.py:154
     // recovery_note = op.concat(Bytes(b"RECOVERED_ITEM_"), recovery_quest_proof)
     pushbytes 0x5245434f56455245445f4954454d5f
     frame_dig -2
     concat
-    // smart_contracts/algorealm/contract.py:136-148
+    // smart_contracts/algorealm/contract.py:155-167
     // recovered_item_asa = itxn.AssetConfig(
     //     asset_name=recovered_name,
     //     unit_name=String("ALGRECOV"),
@@ -685,16 +701,16 @@ recover_lost_item:
     //     freeze=Global.current_application_address,
     //     clawback=Global.current_application_address,
     //     fee=Global.min_txn_fee,  # Use minimum transaction fee
-    //     note=recovery_note
+    //     note=recovery_note,
     // ).submit()
     itxn_begin
-    // smart_contracts/algorealm/contract.py:146
+    // smart_contracts/algorealm/contract.py:165
     // fee=Global.min_txn_fee,  # Use minimum transaction fee
     global MinTxnFee
-    // smart_contracts/algorealm/contract.py:142
+    // smart_contracts/algorealm/contract.py:161
     // manager=Global.current_application_address,
     global CurrentApplicationAddress
-    // smart_contracts/algorealm/contract.py:143-145
+    // smart_contracts/algorealm/contract.py:162-164
     // reserve=Global.current_application_address,
     // freeze=Global.current_application_address,
     // clawback=Global.current_application_address,
@@ -705,33 +721,33 @@ recover_lost_item:
     itxn_field ConfigAssetFreeze
     itxn_field ConfigAssetReserve
     itxn_field ConfigAssetManager
-    // smart_contracts/algorealm/contract.py:141
+    // smart_contracts/algorealm/contract.py:160
     // default_frozen=False,
     intc_0 // 0
     itxn_field ConfigAssetDefaultFrozen
-    // smart_contracts/algorealm/contract.py:140
+    // smart_contracts/algorealm/contract.py:159
     // decimals=UInt64(0),
     intc_0 // 0
     itxn_field ConfigAssetDecimals
-    // smart_contracts/algorealm/contract.py:139
+    // smart_contracts/algorealm/contract.py:158
     // total=UInt64(1),
     intc_1 // 1
     itxn_field ConfigAssetTotal
-    // smart_contracts/algorealm/contract.py:138
+    // smart_contracts/algorealm/contract.py:157
     // unit_name=String("ALGRECOV"),
     pushbytes "ALGRECOV"
     itxn_field ConfigAssetUnitName
-    // smart_contracts/algorealm/contract.py:133-134
+    // smart_contracts/algorealm/contract.py:152-153
     // # Create NEW ASA with same properties but marked as recovered
     // recovered_name = String("RECOVERED_ITEM")
     pushbytes "RECOVERED_ITEM"
     itxn_field ConfigAssetName
-    // smart_contracts/algorealm/contract.py:136
+    // smart_contracts/algorealm/contract.py:155
     // recovered_item_asa = itxn.AssetConfig(
     intc_2 // acfg
     itxn_field TypeEnum
     itxn_field Fee
-    // smart_contracts/algorealm/contract.py:136-148
+    // smart_contracts/algorealm/contract.py:155-167
     // recovered_item_asa = itxn.AssetConfig(
     //     asset_name=recovered_name,
     //     unit_name=String("ALGRECOV"),
@@ -743,11 +759,11 @@ recover_lost_item:
     //     freeze=Global.current_application_address,
     //     clawback=Global.current_application_address,
     //     fee=Global.min_txn_fee,  # Use minimum transaction fee
-    //     note=recovery_note
+    //     note=recovery_note,
     // ).submit()
     itxn_submit
     itxn CreatedAssetID
-    // smart_contracts/algorealm/contract.py:153-154
+    // smart_contracts/algorealm/contract.py:172-173
     // # Update player recovery count
     // self.player_recovery_count[Txn.sender] = current_recovery_count + UInt64(1)
     swap
@@ -757,27 +773,24 @@ recover_lost_item:
     bytec_3 // "player_recovery_count"
     uncover 2
     app_local_put
-    // smart_contracts/algorealm/contract.py:156
+    // smart_contracts/algorealm/contract.py:175
     // log(Bytes(b"Item recovered"))
     pushbytes 0x4974656d207265636f7665726564
     log
-    // smart_contracts/algorealm/contract.py:157
+    // smart_contracts/algorealm/contract.py:176
     // return recovered_item_asa.created_asset.id
     retsub
 
 
 // smart_contracts.algorealm.contract.AlgoRealmGameManager.seasonal_event_reissue(event_name: bytes, participation_proof: bytes, recipient: bytes) -> uint64:
 seasonal_event_reissue:
-    // smart_contracts/algorealm/contract.py:159-165
+    // smart_contracts/algorealm/contract.py:178-181
     // @abimethod()
     // def seasonal_event_reissue(
-    //     self,
-    //     event_name: String,
-    //     participation_proof: Bytes,
-    //     recipient: Account
+    //     self, event_name: String, participation_proof: Bytes, recipient: Account
     // ) -> UInt64:
     proto 3 1
-    // smart_contracts/algorealm/contract.py:170
+    // smart_contracts/algorealm/contract.py:186
     // assert self.is_registered[Txn.sender], "Only registered players can participate"
     txn Sender
     intc_0 // 0
@@ -787,18 +800,18 @@ seasonal_event_reissue:
     bytec_2 // 0x00
     !=
     assert // Only registered players can participate
-    // smart_contracts/algorealm/contract.py:171
+    // smart_contracts/algorealm/contract.py:187
     // assert participation_proof != Bytes(), "Must provide participation proof"
     frame_dig -2
     pushbytes 0x
     !=
     assert // Must provide participation proof
-    // smart_contracts/algorealm/contract.py:175
+    // smart_contracts/algorealm/contract.py:191
     // seasonal_note = op.concat(Bytes(b"SEASONAL_"), participation_proof)
     pushbytes 0x534541534f4e414c5f
     frame_dig -2
     concat
-    // smart_contracts/algorealm/contract.py:177-187
+    // smart_contracts/algorealm/contract.py:193-203
     // seasonal_asa = itxn.AssetConfig(
     //     asset_name=seasonal_item_name,
     //     unit_name=String("ALGSEASN"),
@@ -808,49 +821,49 @@ seasonal_event_reissue:
     //     manager=Global.current_application_address,
     //     reserve=Global.current_application_address,
     //     fee=Global.min_txn_fee,  # Use minimum transaction fee
-    //     note=seasonal_note
+    //     note=seasonal_note,
     // ).submit()
     itxn_begin
-    // smart_contracts/algorealm/contract.py:185
+    // smart_contracts/algorealm/contract.py:201
     // fee=Global.min_txn_fee,  # Use minimum transaction fee
     global MinTxnFee
-    // smart_contracts/algorealm/contract.py:183
+    // smart_contracts/algorealm/contract.py:199
     // manager=Global.current_application_address,
     global CurrentApplicationAddress
-    // smart_contracts/algorealm/contract.py:184
+    // smart_contracts/algorealm/contract.py:200
     // reserve=Global.current_application_address,
     dup
     uncover 3
     itxn_field Note
     itxn_field ConfigAssetReserve
     itxn_field ConfigAssetManager
-    // smart_contracts/algorealm/contract.py:182
+    // smart_contracts/algorealm/contract.py:198
     // default_frozen=False,
     intc_0 // 0
     itxn_field ConfigAssetDefaultFrozen
-    // smart_contracts/algorealm/contract.py:181
+    // smart_contracts/algorealm/contract.py:197
     // decimals=UInt64(0),
     intc_0 // 0
     itxn_field ConfigAssetDecimals
-    // smart_contracts/algorealm/contract.py:180
+    // smart_contracts/algorealm/contract.py:196
     // total=UInt64(1),
     intc_1 // 1
     itxn_field ConfigAssetTotal
-    // smart_contracts/algorealm/contract.py:179
+    // smart_contracts/algorealm/contract.py:195
     // unit_name=String("ALGSEASN"),
     pushbytes "ALGSEASN"
     itxn_field ConfigAssetUnitName
-    // smart_contracts/algorealm/contract.py:173-174
+    // smart_contracts/algorealm/contract.py:189-190
     // # Create seasonal item based on event
     // seasonal_item_name = String("SEASONAL_ITEM")
     pushbytes "SEASONAL_ITEM"
     itxn_field ConfigAssetName
-    // smart_contracts/algorealm/contract.py:177
+    // smart_contracts/algorealm/contract.py:193
     // seasonal_asa = itxn.AssetConfig(
     intc_2 // acfg
     itxn_field TypeEnum
     itxn_field Fee
-    // smart_contracts/algorealm/contract.py:177-187
+    // smart_contracts/algorealm/contract.py:193-203
     // seasonal_asa = itxn.AssetConfig(
     //     asset_name=seasonal_item_name,
     //     unit_name=String("ALGSEASN"),
@@ -860,31 +873,28 @@ seasonal_event_reissue:
     //     manager=Global.current_application_address,
     //     reserve=Global.current_application_address,
     //     fee=Global.min_txn_fee,  # Use minimum transaction fee
-    //     note=seasonal_note
+    //     note=seasonal_note,
     // ).submit()
     itxn_submit
     itxn CreatedAssetID
-    // smart_contracts/algorealm/contract.py:192
+    // smart_contracts/algorealm/contract.py:208
     // log(Bytes(b"Seasonal item issued"))
     pushbytes 0x536561736f6e616c206974656d20697373756564
     log
-    // smart_contracts/algorealm/contract.py:193
+    // smart_contracts/algorealm/contract.py:209
     // return seasonal_asa.created_asset.id
     retsub
 
 
 // smart_contracts.algorealm.contract.AlgoRealmGameManager.craft_items(material_1: uint64, material_2: uint64, recipe_id: uint64) -> uint64:
 craft_items:
-    // smart_contracts/algorealm/contract.py:195-201
+    // smart_contracts/algorealm/contract.py:211-214
     // @abimethod()
     // def craft_items(
-    //     self,
-    //     material_1: Asset,
-    //     material_2: Asset,
-    //     recipe_id: UInt64
+    //     self, material_1: Asset, material_2: Asset, recipe_id: UInt64
     // ) -> UInt64:
     proto 3 1
-    // smart_contracts/algorealm/contract.py:206
+    // smart_contracts/algorealm/contract.py:219
     // assert self.is_registered[Txn.sender], "Only registered players can craft"
     txn Sender
     intc_0 // 0
@@ -894,7 +904,7 @@ craft_items:
     bytec_2 // 0x00
     !=
     assert // Only registered players can craft
-    // smart_contracts/algorealm/contract.py:214-223
+    // smart_contracts/algorealm/contract.py:227-236
     // crafted_asa = itxn.AssetConfig(
     //     asset_name=crafted_item_name,
     //     unit_name=String("ALGCRAFT"),
@@ -903,47 +913,47 @@ craft_items:
     //     default_frozen=False,
     //     manager=Global.current_application_address,
     //     fee=Global.min_txn_fee,  # Use minimum transaction fee
-    //     note=Bytes(b"CRAFTED_ITEM")
+    //     note=Bytes(b"CRAFTED_ITEM"),
     // ).submit()
     itxn_begin
-    // smart_contracts/algorealm/contract.py:221
+    // smart_contracts/algorealm/contract.py:234
     // fee=Global.min_txn_fee,  # Use minimum transaction fee
     global MinTxnFee
-    // smart_contracts/algorealm/contract.py:220
+    // smart_contracts/algorealm/contract.py:233
     // manager=Global.current_application_address,
     global CurrentApplicationAddress
-    // smart_contracts/algorealm/contract.py:222
-    // note=Bytes(b"CRAFTED_ITEM")
+    // smart_contracts/algorealm/contract.py:235
+    // note=Bytes(b"CRAFTED_ITEM"),
     bytec 11 // 0x435241465445445f4954454d
     itxn_field Note
     itxn_field ConfigAssetManager
-    // smart_contracts/algorealm/contract.py:219
+    // smart_contracts/algorealm/contract.py:232
     // default_frozen=False,
     intc_0 // 0
     itxn_field ConfigAssetDefaultFrozen
-    // smart_contracts/algorealm/contract.py:218
+    // smart_contracts/algorealm/contract.py:231
     // decimals=UInt64(0),
     intc_0 // 0
     itxn_field ConfigAssetDecimals
-    // smart_contracts/algorealm/contract.py:217
+    // smart_contracts/algorealm/contract.py:230
     // total=UInt64(1),
     intc_1 // 1
     itxn_field ConfigAssetTotal
-    // smart_contracts/algorealm/contract.py:216
+    // smart_contracts/algorealm/contract.py:229
     // unit_name=String("ALGCRAFT"),
     pushbytes "ALGCRAFT"
     itxn_field ConfigAssetUnitName
-    // smart_contracts/algorealm/contract.py:211-212
+    // smart_contracts/algorealm/contract.py:224-225
     // # Create crafted item based on recipe
     // crafted_item_name = String("CRAFTED_ITEM")
     bytec 11 // "CRAFTED_ITEM"
     itxn_field ConfigAssetName
-    // smart_contracts/algorealm/contract.py:214
+    // smart_contracts/algorealm/contract.py:227
     // crafted_asa = itxn.AssetConfig(
     intc_2 // acfg
     itxn_field TypeEnum
     itxn_field Fee
-    // smart_contracts/algorealm/contract.py:214-223
+    // smart_contracts/algorealm/contract.py:227-236
     // crafted_asa = itxn.AssetConfig(
     //     asset_name=crafted_item_name,
     //     unit_name=String("ALGCRAFT"),
@@ -952,26 +962,26 @@ craft_items:
     //     default_frozen=False,
     //     manager=Global.current_application_address,
     //     fee=Global.min_txn_fee,  # Use minimum transaction fee
-    //     note=Bytes(b"CRAFTED_ITEM")
+    //     note=Bytes(b"CRAFTED_ITEM"),
     // ).submit()
     itxn_submit
     itxn CreatedAssetID
-    // smart_contracts/algorealm/contract.py:229
+    // smart_contracts/algorealm/contract.py:242
     // log(Bytes(b"Item crafted"))
     pushbytes 0x4974656d2063726166746564
     log
-    // smart_contracts/algorealm/contract.py:230
+    // smart_contracts/algorealm/contract.py:243
     // return crafted_asa.created_asset.id
     retsub
 
 
 // smart_contracts.algorealm.contract.AlgoRealmGameManager.get_player_stats(player: bytes) -> uint64, uint64, uint64:
 get_player_stats:
-    // smart_contracts/algorealm/contract.py:232-233
+    // smart_contracts/algorealm/contract.py:245-246
     // @abimethod(readonly=True)
     // def get_player_stats(self, player: Account) -> tuple[UInt64, UInt64, UInt64]:
     proto 1 3
-    // smart_contracts/algorealm/contract.py:235
+    // smart_contracts/algorealm/contract.py:248
     // assert self.is_registered[player], "Player not registered"
     frame_dig -1
     intc_0 // 0
@@ -981,48 +991,52 @@ get_player_stats:
     bytec_2 // 0x00
     !=
     assert // Player not registered
-    // smart_contracts/algorealm/contract.py:237
+    // smart_contracts/algorealm/contract.py:250
     // self.player_level[player],
     frame_dig -1
     intc_0 // 0
     bytec 9 // "player_level"
     app_local_get_ex
     assert // check self.player_level exists for account
-    // smart_contracts/algorealm/contract.py:238
+    // smart_contracts/algorealm/contract.py:251
     // self.player_experience[player],
     frame_dig -1
     intc_0 // 0
     bytec 10 // "player_experience"
     app_local_get_ex
     assert // check self.player_experience exists for account
-    // smart_contracts/algorealm/contract.py:239
-    // self.player_recovery_count[player]
+    // smart_contracts/algorealm/contract.py:252
+    // self.player_recovery_count[player],
     frame_dig -1
     intc_0 // 0
     bytec_3 // "player_recovery_count"
     app_local_get_ex
     assert // check self.player_recovery_count exists for account
-    // smart_contracts/algorealm/contract.py:236-240
+    // smart_contracts/algorealm/contract.py:249-253
     // return (
     //     self.player_level[player],
     //     self.player_experience[player],
-    //     self.player_recovery_count[player]
+    //     self.player_recovery_count[player],
     // )
     retsub
 
 
 // smart_contracts.algorealm.contract.AlgoRealmGameManager.advance_season() -> uint64:
 advance_season:
-    // smart_contracts/algorealm/contract.py:245
-    // assert Txn.sender == self.game_master.value, "Only game master can advance season"
+    // smart_contracts/algorealm/contract.py:259
+    // Txn.sender == self.game_master.value
     txn Sender
     intc_0 // 0
     bytec 8 // "game_master"
     app_global_get_ex
     assert // check self.game_master exists
     ==
+    // smart_contracts/algorealm/contract.py:258-260
+    // assert (
+    //     Txn.sender == self.game_master.value
+    // ), "Only game master can advance season"
     assert // Only game master can advance season
-    // smart_contracts/algorealm/contract.py:246
+    // smart_contracts/algorealm/contract.py:261
     // self.current_season.value += 1
     intc_0 // 0
     bytec 6 // "current_season"
@@ -1033,51 +1047,51 @@ advance_season:
     bytec 6 // "current_season"
     dig 1
     app_global_put
-    // smart_contracts/algorealm/contract.py:247
+    // smart_contracts/algorealm/contract.py:262
     // log(Bytes(b"Season advanced"))
     pushbytes 0x536561736f6e20616476616e636564
     log
-    // smart_contracts/algorealm/contract.py:248
+    // smart_contracts/algorealm/contract.py:263
     // return self.current_season.value
     retsub
 
 
 // smart_contracts.algorealm.contract.AlgoRealmGameManager.get_game_info() -> uint64, uint64, uint64:
 get_game_info:
-    // smart_contracts/algorealm/contract.py:254
+    // smart_contracts/algorealm/contract.py:269
     // self.total_players.value,
     intc_0 // 0
     bytec 4 // "total_players"
     app_global_get_ex
     assert // check self.total_players exists
-    // smart_contracts/algorealm/contract.py:255
+    // smart_contracts/algorealm/contract.py:270
     // self.total_items_created.value,
     intc_0 // 0
     bytec 5 // "total_items_created"
     app_global_get_ex
     assert // check self.total_items_created exists
-    // smart_contracts/algorealm/contract.py:256
-    // self.current_season.value
+    // smart_contracts/algorealm/contract.py:271
+    // self.current_season.value,
     intc_0 // 0
     bytec 6 // "current_season"
     app_global_get_ex
     assert // check self.current_season exists
-    // smart_contracts/algorealm/contract.py:253-257
+    // smart_contracts/algorealm/contract.py:268-272
     // return (
     //     self.total_players.value,
     //     self.total_items_created.value,
-    //     self.current_season.value
+    //     self.current_season.value,
     // )
     retsub
 
 
 // smart_contracts.algorealm.contract.AlgoRealmGameManager.claim_item(item_id: uint64) -> bytes:
 claim_item:
-    // smart_contracts/algorealm/contract.py:259-260
+    // smart_contracts/algorealm/contract.py:274-275
     // @abimethod()
     // def claim_item(self, item_id: Asset) -> String:
     proto 1 1
-    // smart_contracts/algorealm/contract.py:265
+    // smart_contracts/algorealm/contract.py:280
     // assert self.is_registered[Txn.sender], "Only registered players can claim items"
     txn Sender
     intc_0 // 0
@@ -1087,59 +1101,59 @@ claim_item:
     bytec_2 // 0x00
     !=
     assert // Only registered players can claim items
-    // smart_contracts/algorealm/contract.py:267-268
+    // smart_contracts/algorealm/contract.py:282-283
     // # Verify the asset exists
     // manager_response = op.AssetParamsGet.asset_manager(item_id)
     frame_dig -1
     asset_params_get AssetManager
     pop
-    // smart_contracts/algorealm/contract.py:269
+    // smart_contracts/algorealm/contract.py:284
     // assert manager_response[0], "Asset not found"
     global ZeroAddress
     !=
     assert // Asset not found
-    // smart_contracts/algorealm/contract.py:272-278
+    // smart_contracts/algorealm/contract.py:287-293
     // # Transfer item to the player
     // itxn.AssetTransfer(
     //     asset_receiver=Txn.sender,
     //     asset_amount=UInt64(1),
     //     xfer_asset=item_id,
-    //     fee=Global.min_txn_fee
+    //     fee=Global.min_txn_fee,
     // ).submit()
     itxn_begin
-    // smart_contracts/algorealm/contract.py:277
-    // fee=Global.min_txn_fee
+    // smart_contracts/algorealm/contract.py:292
+    // fee=Global.min_txn_fee,
     global MinTxnFee
-    // smart_contracts/algorealm/contract.py:274
+    // smart_contracts/algorealm/contract.py:289
     // asset_receiver=Txn.sender,
     txn Sender
     frame_dig -1
     itxn_field XferAsset
-    // smart_contracts/algorealm/contract.py:275
+    // smart_contracts/algorealm/contract.py:290
     // asset_amount=UInt64(1),
     intc_1 // 1
     itxn_field AssetAmount
     itxn_field AssetReceiver
-    // smart_contracts/algorealm/contract.py:272-273
+    // smart_contracts/algorealm/contract.py:287-288
     // # Transfer item to the player
     // itxn.AssetTransfer(
     pushint 4 // axfer
     itxn_field TypeEnum
     itxn_field Fee
-    // smart_contracts/algorealm/contract.py:272-278
+    // smart_contracts/algorealm/contract.py:287-293
     // # Transfer item to the player
     // itxn.AssetTransfer(
     //     asset_receiver=Txn.sender,
     //     asset_amount=UInt64(1),
     //     xfer_asset=item_id,
-    //     fee=Global.min_txn_fee
+    //     fee=Global.min_txn_fee,
     // ).submit()
     itxn_submit
-    // smart_contracts/algorealm/contract.py:280
+    // smart_contracts/algorealm/contract.py:295
     // log(Bytes(b"Item claimed"))
     pushbytes 0x4974656d20636c61696d6564
     log
-    // smart_contracts/algorealm/contract.py:281
+    // smart_contracts/algorealm/contract.py:296
     // return String("Item successfully claimed!")
     pushbytes "Item successfully claimed!"
     retsub
@@ -1147,11 +1161,11 @@ claim_item:
 
 // smart_contracts.algorealm.contract.AlgoRealmGameManager.get_recovery_status(player: bytes) -> uint64, uint64:
 get_recovery_status:
-    // smart_contracts/algorealm/contract.py:283-284
+    // smart_contracts/algorealm/contract.py:298-299
     // @abimethod(readonly=True)
     // def get_recovery_status(self, player: Account) -> tuple[UInt64, UInt64]:
     proto 1 2
-    // smart_contracts/algorealm/contract.py:286
+    // smart_contracts/algorealm/contract.py:301
     // assert self.is_registered[player], "Player not registered"
     frame_dig -1
     intc_0 // 0
@@ -1161,7 +1175,7 @@ get_recovery_status:
     bytec_2 // 0x00
     !=
     assert // Player not registered
-    // smart_contracts/algorealm/contract.py:287
+    // smart_contracts/algorealm/contract.py:302
     // return self.player_recovery_count[player], self.max_recovery_per_item.value
     frame_dig -1
     intc_0 // 0
