@@ -57,7 +57,7 @@ export class AlgoRealmHelper {
   /**
    * Register a new player (requires opt-in first)
    */
-  async registerPlayer(playerName: string, sender: string): Promise<any> {
+  async registerPlayer(playerName: string, sender: string) {
     const client = this.getClient()
     const signer = this.ensureSigner()
 
@@ -91,7 +91,7 @@ export class AlgoRealmHelper {
     defensePower: number,
     specialEffect: string,
     sender: string,
-  ): Promise<any> {
+  ) {
     const client = this.getClient()
     const signer = this.ensureSigner()
 
@@ -113,7 +113,7 @@ export class AlgoRealmHelper {
   /**
    * Recover a lost item
    */
-  async recoverLostItem(originalItemId: bigint, recoveryQuestProof: Uint8Array, newRecipient: string, sender: string): Promise<any> {
+  async recoverLostItem(originalItemId: bigint, recoveryQuestProof: Uint8Array, newRecipient: string, sender: string) {
     const client = this.getClient()
     const signer = this.ensureSigner()
 
@@ -131,7 +131,7 @@ export class AlgoRealmHelper {
   /**
    * Issue seasonal event item
    */
-  async seasonalEventReissue(eventName: string, participationProof: Uint8Array, recipient: string, sender: string): Promise<any> {
+  async seasonalEventReissue(eventName: string, participationProof: Uint8Array, recipient: string, sender: string) {
     const client = this.getClient()
     const signer = this.ensureSigner()
 
@@ -149,7 +149,7 @@ export class AlgoRealmHelper {
   /**
    * Craft new items from existing ones
    */
-  async craftItems(material1: bigint, material2: bigint, recipeId: number, sender: string): Promise<any> {
+  async craftItems(material1: bigint, material2: bigint, recipeId: number, sender: string) {
     const client = this.getClient()
     const signer = this.ensureSigner()
 
@@ -181,7 +181,7 @@ export class AlgoRealmHelper {
   /**
    * Advance season (Game Master only)
    */
-  async advanceSeason(sender: string): Promise<any> {
+  async advanceSeason(sender: string) {
     const client = this.getClient()
     const signer = this.ensureSigner()
 
@@ -293,7 +293,7 @@ export class AlgoRealmHelper {
       const currentBalance = Number(accountInfo.balance) / 1_000_000 // Convert microAlgos to Algos
 
       if (currentBalance < minBalance) {
-        console.log(`Account balance (${currentBalance} ALGO) is low, needs funding...`)
+        // console.log(`Account balance (${currentBalance} ALGO) is low, needs funding...`)
 
         // Check if we're on LocalNet
         const isLocalNet = import.meta.env.VITE_ALGOD_NETWORK === 'localnet'
@@ -315,18 +315,18 @@ Current balance: ${currentBalance} ALGO, Required: ${minBalance} ALGO`)
           )
         }
       }
-    } catch (error: any) {
-      if (error.message.includes('needs funding') || error.message.includes('Funding Required')) {
+    } catch (error) {
+      if (error instanceof Error && (error.message.includes('needs funding') || error.message.includes('Funding Required'))) {
         throw error
       }
-      throw new Error(`Could not check account balance: ${error.message}`)
+      throw new Error(`Could not check account balance: ${error instanceof Error ? error.message : 'Unknown error'}`)
     }
   }
 
   /**
    * Get all game items (assets) owned by a specific account
    */
-  async getUserAssets(accountAddress: string): Promise<any[]> {
+  async getUserAssets(accountAddress: string) {
     if (!this.algorand) {
       throw new Error('Algorand client not initialized')
     }

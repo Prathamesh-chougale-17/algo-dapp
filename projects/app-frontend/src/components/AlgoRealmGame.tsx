@@ -33,7 +33,7 @@ interface AlgoRealmGameProps {
 
 export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps) {
   const { activeAccount, transactionSigner } = useWallet()
-  const [algorand, setAlgorand] = useState<AlgorandClient | null>(null)
+  const [, setAlgorand] = useState<AlgorandClient | null>(null)
   const [gameInfo, setGameInfo] = useState<GameInfo | null>(null)
   const [playerStats, setPlayerStats] = useState<PlayerStats | null>(null)
   const [isRegistered, setIsRegistered] = useState(false)
@@ -42,7 +42,27 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState<string | null>(null)
   const [createdItems, setCreatedItems] = useState<CreatedItem[]>([])
-  const [userAssets, setUserAssets] = useState<any[]>([])
+  const [userAssets, setUserAssets] = useState<
+    {
+      id: bigint
+      assetId: bigint
+      amount: bigint
+      name: string
+      unitName: string
+      total?: bigint
+      decimals?: number
+      creator?: string
+      manager?: string | undefined
+      reserve?: string | undefined
+      freeze?: string | undefined
+      clawback?: string | undefined
+      url?: string | undefined
+      metadataHash?: string | undefined
+      defaultFrozen?: boolean
+      error?: string
+      isGameItem?: boolean
+    }[]
+  >([])
   const [loadingAssets, setLoadingAssets] = useState(false)
 
   // Item creation form
@@ -108,7 +128,7 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
         currentSeason: Number(currentSeason),
       })
     } catch (err) {
-      console.log('Could not load game info:', err)
+      setError('Failed to load game info. Please try again later.')
     }
   }
 
@@ -125,7 +145,6 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
       })
       setIsRegistered(Number(level) > 0) // If level > 0, player is registered
     } catch (err) {
-      console.log('Could not load player stats:', err)
       setIsRegistered(false)
     }
   }
@@ -135,12 +154,9 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
 
     setLoadingAssets(true)
     try {
-      console.log('Loading user assets for:', activeAccount.address)
       const assets = await algoRealmHelper.getUserAssets(activeAccount.address)
-      console.log('User assets loaded:', assets)
       setUserAssets(assets)
     } catch (err) {
-      console.error('Could not load user assets:', err)
       setUserAssets([])
     } finally {
       setLoadingAssets(false)
@@ -162,15 +178,16 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
       setSuccess(`Successfully registered as ${playerName}!`)
       await loadGameInfo()
       await loadPlayerStats()
-    } catch (err: any) {
-      if (err.message.includes('funding')) {
-        setError(`Account Funding Required: ${err.message}`)
-      } else if (err.message.includes('key does not exist in this wallet')) {
+    } catch (err) {
+      const error = err instanceof Error ? err : new Error(String(err))
+      if (error.message.includes('funding')) {
+        setError(`Account Funding Required: ${error.message}`)
+      } else if (error.message.includes('key does not exist in this wallet')) {
         setError(
           `❌ Wallet Connection Issue: The connected wallet doesn't have access to this account's private key. For LocalNet testing, please disconnect and connect using "LocalNet Wallet" instead. Click the "👤 Wallet" button above to switch wallets.`,
         )
       } else {
-        setError(`Registration failed: ${err.message}`)
+        setError(`Registration failed: ${error.message}`)
       }
     } finally {
       setLoading(false)
@@ -205,7 +222,7 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
         itemType: itemForm.itemType,
         rarity: itemForm.rarity,
         recipient: itemForm.recipient,
-        transactionId: result.txId || 'Unknown',
+        transactionId: result.txIds[0] || 'Unknown',
         timestamp: Date.now(),
       }
 
@@ -222,8 +239,9 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
         defensePower: 5,
         specialEffect: '',
       })
-    } catch (err: any) {
-      setError(`Item creation failed: ${err.message}`)
+    } catch (err) {
+      const error = err instanceof Error ? err : new Error(String(err))
+      setError(`Item creation failed: ${error.message}`)
     } finally {
       setLoading(false)
     }
@@ -252,8 +270,9 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
         questProof: '',
         newRecipient: '',
       })
-    } catch (err: any) {
-      setError(`Item recovery failed: ${err.message}`)
+    } catch (err) {
+      const error = err instanceof Error ? err : new Error(String(err))
+      setError(`Item recovery failed: ${error.message}`)
     } finally {
       setLoading(false)
     }
@@ -270,8 +289,9 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
       const result = await algoRealmHelper.advanceSeason(activeAccount.address)
       setSuccess(`Season advanced! New season: ${result.return}`)
       await loadGameInfo()
-    } catch (err: any) {
-      setError(`Season advance failed: ${err.message}`)
+    } catch (err) {
+      const error = err instanceof Error ? err : new Error(String(err))
+      setError(`Season advance failed: ${error.message}`)
     } finally {
       setLoading(false)
     }
@@ -714,7 +734,7 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
                     {/* Enhanced card styling */}
                     <div className="flex justify-between items-start mb-3">
                       <h4 className="text-xl font-bold text-yellow-400">{asset.name || `Mysterious Item #${asset.id}`}</h4>
-                      <span className="text-sm bg-blue-700 px-3 py-1 rounded-full font-semibold">ASA ID: {asset.id}</span>{' '}
+                      <span className="text-sm bg-blue-700 px-3 py-1 rounded-full font-semibold">ASA ID: {asset.id.toString()}</span>{' '}
                       {/* More prominent ASA ID */}
                     </div>
                     <div className="space-y-2 text-base text-gray-200">
@@ -724,7 +744,7 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
                       </div>
                       <div>
                         <span className="text-gray-400">Quantity:</span>
-                        <span className="ml-2 text-green-400 font-bold">{asset.amount}</span>
+                        <span className="ml-2 text-green-400 font-bold">{asset.amount.toString()}</span>
                       </div>
                       {asset.creator && (
                         <div>
@@ -765,7 +785,7 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
                             🔗 View Details
                           </button>
                         )}
-                        <button className="btn btn-sm btn-outline btn-success" onClick={() => showAssetQR(asset.id)}>
+                        <button className="btn btn-sm btn-outline btn-success" onClick={() => showAssetQR(Number(asset.id))}>
                           📱 QR Code
                         </button>
                       </div>
