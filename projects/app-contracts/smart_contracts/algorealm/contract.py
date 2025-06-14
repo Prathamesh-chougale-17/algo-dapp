@@ -123,7 +123,7 @@ class AlgoRealmGameManager(ARC4Contract):
         
         # Check recovery limits
         current_recovery_count = self.player_recovery_count[Txn.sender]
-        assert current_recovery_count < self.max_recovery_per_item.value, "Recovery limit reached"
+        assert current_recovery_count < self.max_recovery_per_item.value, "Recovery limit reached - max 3 recoveries per player"
         
         # Get original item name for new ASA
         original_name_response = op.AssetParamsGet.asset_name(original_item_id)
@@ -279,3 +279,9 @@ class AlgoRealmGameManager(ARC4Contract):
         
         log(Bytes(b"Item claimed"))
         return String("Item successfully claimed!")
+    
+    @abimethod(readonly=True)
+    def get_recovery_status(self, player: Account) -> tuple[UInt64, UInt64]:
+        """Get player's current recovery count and max allowed recoveries"""
+        assert self.is_registered[player], "Player not registered"
+        return self.player_recovery_count[player], self.max_recovery_per_item.value

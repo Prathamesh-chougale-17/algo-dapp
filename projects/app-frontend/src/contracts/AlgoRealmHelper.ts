@@ -334,19 +334,29 @@ Current balance: ${currentBalance} ALGO, Required: ${minBalance} ALGO`)
     try {
       const accountInfo = await this.algorand.client.algod.accountInformation(accountAddress).do()
 
-      // Filter for AlgoRealm game items (assets with unit name starting with "ALG")
-      const gameAssets =
-        accountInfo.assets?.filter((asset: any) => {
-          return asset.amount > 0 // Only include assets the user actually owns
-        }) || []
+      // Get all assets owned by the user
+      const userAssets = accountInfo.assets || []
+
+      if (userAssets.length === 0) {
+        return []
+      }
 
       // Get detailed information about each asset
       const detailedAssets = await Promise.all(
-        gameAssets.map(async (asset: any) => {
+        userAssets.map(async (asset) => {
           try {
-            const assetInfo = await this.algorand!.client.algod.getAssetByID(asset['asset-id']).do()
+            const assetId = asset.assetId
+            const assetInfo = await this.algorand!.client.algod.getAssetByID(assetId).do()
+
+            const deploymentInfo = this.getDeploymentInfo()
+            const isGameItem =
+              assetInfo.params.manager === deploymentInfo.app_address ||
+              assetInfo.params.creator === deploymentInfo.app_address ||
+              ['ALGITEM', 'ALGRECOV', 'ALGSEASN', 'ALGCRAFT'].includes(assetInfo.params.unitName || '')
+
             return {
-              assetId: asset['asset-id'],
+              id: assetId,
+              assetId: assetId,
               amount: asset.amount,
               name: assetInfo.params.name || 'Unknown Item',
               unitName: assetInfo.params.unitName || '',
@@ -357,30 +367,30 @@ Current balance: ${currentBalance} ALGO, Required: ${minBalance} ALGO`)
               reserve: assetInfo.params.reserve,
               freeze: assetInfo.params.freeze,
               clawback: assetInfo.params.clawback,
-              frozen: asset['is-frozen'] || false,
-              // note: assetInfo.params.note ? Buffer.from(assetInfo.params.note, 'base64').toString() : '',
+              frozen: asset.isFrozen || false,
               url: assetInfo.params.url || '',
-              // Check if this is a game item based on manager address
-              isGameItem: assetInfo.params.manager === deploymentInfo.app_address,
+              isGameItem: isGameItem,
             }
           } catch (error) {
-            console.error(`Error getting details for asset ${asset['asset-id']}:`, error)
             return {
-              assetId: asset['asset-id'],
+              id: asset.assetId,
+              assetId: asset.assetId,
               amount: asset.amount,
               name: 'Unknown Item',
               unitName: '',
               error: 'Could not load asset details',
+              isGameItem: false,
             }
           }
         }),
       )
 
-      // Filter to only show game items (managed by our contract)
-      return detailedAssets.filter((asset) => asset.isGameItem)
-    } catch (error: any) {
-      console.error('Error getting user assets:', error)
-      throw new Error(`Could not load user assets: ${error.message}`)
+      // Filter to only show game items and assets with amount > 0
+      const gameItems = detailedAssets.filter((asset) => asset.amount > 0 && asset.isGameItem)
+
+      return gameItems
+    } catch (error) {
+      throw new Error(`Could not load user assets: ${error instanceof Error ? error.message : 'Unknown error'}`)
     }
   }
 }

@@ -3,6 +3,7 @@ import { useWallet } from '@txnlab/use-wallet-react'
 import { useEffect, useState } from 'react'
 import { algoRealmHelper } from '../contracts/AlgoRealmHelper'
 import { getAlgodConfigFromViteEnvironment } from '../utils/network/getAlgoClientConfigs'
+import { QRModal } from './QRCode'
 
 interface GameInfo {
   totalPlayers: number
@@ -62,6 +63,9 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
     newRecipient: '',
   })
 
+  // QR Modal state
+  const [qrModal, setQrModal] = useState({ isOpen: false, title: '', value: '' })
+
   const deploymentInfo = algoRealmHelper.getDeploymentInfo()
   const isGameMaster = activeAccount ? algoRealmHelper.isGameMaster(activeAccount.address) : false
   useEffect(() => {
@@ -116,10 +120,12 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
 
     setLoadingAssets(true)
     try {
+      console.log('Loading user assets for:', activeAccount.address)
       const assets = await algoRealmHelper.getUserAssets(activeAccount.address)
+      console.log('User assets loaded:', assets)
       setUserAssets(assets)
     } catch (err) {
-      console.log('Could not load user assets:', err)
+      console.error('Could not load user assets:', err)
       setUserAssets([])
     } finally {
       setLoadingAssets(false)
@@ -254,6 +260,15 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
     } finally {
       setLoading(false)
     }
+  }
+
+  // QR code helper functions
+  const showAssetQR = (assetId: number) => {
+    setQrModal({ isOpen: true, title: 'Asset ID QR Code', value: `Asset ID: ${assetId}` })
+  }
+
+  const showTransactionQR = (txId: string) => {
+    setQrModal({ isOpen: true, title: 'Transaction ID QR Code', value: `Transaction ID: ${txId}` })
   }
 
   if (!activeAccount) {
@@ -512,12 +527,110 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
                           >
                             Use for Recovery
                           </button>
+                          <button className="btn btn-xs btn-info" onClick={() => showAssetQR(Number(item.assetId))}>
+                            QR Asset ID
+                          </button>
+                          <button className="btn btn-xs btn-success" onClick={() => showTransactionQR(item.transactionId)}>
+                            QR Txn ID
+                          </button>
                         </div>
                       </td>
                     </tr>
                   ))}
                 </tbody>
               </table>
+            </div>
+          </div>
+        )}
+
+        {/* My Items */}
+        {isRegistered && (
+          <div className="bg-black bg-opacity-30 rounded-lg p-6 mb-8 text-white">
+            <div className="flex justify-between items-center mb-4">
+              <h3 className="text-2xl font-bold">🎒 My Items</h3>
+              <button className="btn btn-outline btn-sm" onClick={loadUserAssets} disabled={loading}>
+                {loading ? 'Loading...' : '🔄 Refresh'}
+              </button>
+            </div>
+
+            {userAssets.length === 0 ? (
+              <div className="text-center py-8 text-gray-400">
+                <div className="text-4xl mb-2">📦</div>
+                <p>No items found in your inventory</p>
+                <p className="text-sm mt-2">Items will appear here after you create or claim them</p>
+              </div>
+            ) : (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {userAssets.map((asset) => (
+                  <div key={asset.id} className="bg-gray-800 rounded-lg p-4 border border-gray-600">
+                    <div className="flex justify-between items-start mb-2">
+                      <h4 className="text-lg font-bold text-yellow-400">{asset.name || `Item #${asset.id}`}</h4>
+                      <span className="text-xs bg-blue-600 px-2 py-1 rounded">ASA {asset.id}</span>
+                    </div>
+
+                    <div className="space-y-2 text-sm">
+                      <div>
+                        <span className="text-gray-400">Unit:</span>
+                        <span className="ml-2 text-white">{asset.unitName}</span>
+                      </div>
+                      <div>
+                        <span className="text-gray-400">Amount:</span>
+                        <span className="ml-2 text-green-400">{asset.amount}</span>
+                      </div>
+                      {asset.creator && (
+                        <div>
+                          <span className="text-gray-400">Creator:</span>
+                          <span className="ml-2 text-blue-400 font-mono text-xs">
+                            {asset.creator.slice(0, 8)}...{asset.creator.slice(-8)}
+                          </span>
+                        </div>
+                      )}
+                      {asset.url && (
+                        <div>
+                          <span className="text-gray-400">URL:</span>
+                          <a href={asset.url} target="_blank" rel="noopener noreferrer" className="ml-2 text-blue-400 hover:underline">
+                            View Details
+                          </a>
+                        </div>
+                      )}
+                    </div>
+
+                    <div className="mt-4 pt-3 border-t border-gray-600">
+                      <div className="flex gap-2">
+                        <button
+                          className="btn btn-xs btn-outline"
+                          onClick={() => {
+                            navigator.clipboard.writeText(asset.id.toString())
+                            setSuccess(`Asset ID ${asset.id} copied to clipboard!`)
+                            setTimeout(() => setSuccess(''), 3000)
+                          }}
+                        >
+                          📋 Copy ID
+                        </button>
+                        {asset.url && (
+                          <button className="btn btn-xs btn-outline" onClick={() => window.open(asset.url, '_blank')}>
+                            🔗 View
+                          </button>
+                        )}
+                        <button className="btn btn-xs btn-info" onClick={() => showAssetQR(asset.id)}>
+                          📱 QR Asset ID
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+
+            <div className="mt-6 p-4 bg-gray-800 rounded-lg border border-gray-600">
+              <h4 className="text-lg font-bold mb-2 text-blue-400">💡 How to Get Items</h4>
+              <ul className="text-sm text-gray-300 space-y-1">
+                <li>• Ask the Game Master to create items for you</li>
+                <li>• Participate in seasonal events</li>
+                <li>• Recover lost items using quest proofs</li>
+                <li>• Craft items using materials</li>
+                <li>• Remember to opt-in to asset before claiming items!</li>
+              </ul>
             </div>
           </div>
         )}
@@ -628,6 +741,16 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
               </div>
             </div>
           </div>
+        )}
+
+        {/* QR Code Modal */}
+        {qrModal.isOpen && (
+          <QRModal
+            isOpen={qrModal.isOpen}
+            title={qrModal.title}
+            value={qrModal.value}
+            onClose={() => setQrModal({ isOpen: false, title: '', value: '' })}
+          />
         )}
       </div>
     </div>
