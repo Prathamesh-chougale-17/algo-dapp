@@ -8,7 +8,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": ">=20.0",
+    "node": ">=18.0",
     "npm": ">=9.0"
   },
   "devDependencies": {
@@ -50,13 +50,15 @@
     "tslib": "^2.6.2"
   },
   "scripts": {
+    "setup": "node setup-deps.js",
     "generate:app-clients": "algokit project link --all",
-    "dev": "npm run generate:app-clients && vite",
-    "build": "npm run generate:app-clients && tsc && vite build",
-    "test": "jest --coverage --passWithNoTests",
-    "playwright:test": "playwright test",
-    "lint": "npx eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "npx eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
+    "dev": "npm run setup && npm run generate:app-clients && vite",
+    "build": "npm run setup && npm run generate:app-clients && tsc && vite build",
+    "test": "npm run setup && jest --coverage --passWithNoTests",
+    "playwright:test": "npm run setup && playwright test",
+    "lint": "npm run setup && eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "npm run setup && eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
+    "ci-deploy-vercel": "npm run setup && npm run ci:vercel:pull && npm run ci:vercel:deploy",
     "ci:vercel:build": "vercel build --prod --token=$VERCEL_TOKEN",
     "ci:vercel:pull": "vercel pull --yes --environment=production --token=$VERCEL_TOKEN",
     "ci:vercel:deploy": "npm run ci:vercel:build && vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN",
