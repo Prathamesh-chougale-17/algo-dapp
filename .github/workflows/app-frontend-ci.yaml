@@ -1,13 +1,11 @@
 name: Validate app-frontend
 
 on:
-  
   workflow_call:
-  
 
 jobs:
   validate:
-    runs-on: 'ubuntu-latest'
+    runs-on: "ubuntu-latest"
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -17,7 +15,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install poetry
         run: pipx install poetry
@@ -34,14 +32,11 @@ jobs:
       - name: Install dependencies
         run: algokit project bootstrap all --project-name 'app-frontend'
 
-      
       - name: Run linters
         run: algokit project run lint --project-name 'app-frontend'
-      
-      
+
       - name: Run unit tests
         run: algokit project run test --project-name 'app-frontend'
-      
 
       - name: Build
         run: algokit project run build --project-name 'app-frontend'
