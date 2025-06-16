@@ -61,6 +61,13 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
       defaultFrozen?: boolean
       error?: string
       isGameItem?: boolean
+      note?: string | undefined
+      isOwner?: boolean
+      owner?: string | null
+      ownerAddress?: string | null
+      isInWallet?: boolean
+      isRegisteredToYou?: boolean
+      currentHolder?: string
     }[]
   >([])
   const [loadingAssets, setLoadingAssets] = useState(false)
@@ -86,6 +93,17 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
   // QR Modal state
   const [qrModal, setQrModal] = useState({ isOpen: false, title: '', value: '' })
 
+  // Item detail modal state
+  const [itemDetailModal, setItemDetailModal] = useState({
+    isOpen: false,
+    selectedItem: null as any,
+    ownershipInfo: '',
+  })
+
+  // Registration check for recipients
+  const [recipientRegistrationStatus, setRecipientRegistrationStatus] = useState<{ [key: string]: boolean }>({})
+  const [checkingRecipient, setCheckingRecipient] = useState(false)
+
   const deploymentInfo = algoRealmHelper.getDeploymentInfo()
   const isGameMaster = activeAccount ? algoRealmHelper.isGameMaster(activeAccount.address) : false
 
@@ -97,10 +115,10 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
 
       if (activeAccount) {
         await algoRealmHelper.initialize(client, activeAccount.address, transactionSigner)
+
         await loadGameInfo()
         await loadPlayerStats()
         await loadUserAssets()
-
         // Set default recipient to user's address for item creation
         setItemForm((prev) => ({
           ...prev,
@@ -202,6 +220,19 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
     setSuccess(null)
 
     try {
+      // First check if the recipient is registered before attempting to create the item
+      const isRecipientRegistered = await checkAddressRegistered(itemForm.recipient)
+
+      if (!isRecipientRegistered) {
+        setError(`❌ Error: The recipient "${itemForm.recipient}" is not registered in AlgoRealm.
+
+        The recipient must register as a player before they can receive items.
+
+        Please select a different recipient or have this address register in the game first.`)
+        setLoading(false)
+        return
+      }
+
       const result = await algoRealmHelper.createGameItem(
         itemForm.recipient,
         itemForm.itemName,
@@ -227,8 +258,20 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
       }
 
       setCreatedItems((prev) => [newItem, ...prev])
-      setSuccess(`✅ Item "${itemForm.itemName}" created successfully! Asset ID: ${assetId}`)
+      // Check ownership information
+      let ownerInfo = ''
+      try {
+        const ownershipInfo = await algoRealmHelper.getItemOwnershipInfo(BigInt(assetId), activeAccount.address)
+        ownerInfo = `\nOwnership registered to: ${itemForm.recipient}`
+      } catch (error) {
+        console.error('Could not fetch ownership info', error)
+      }
+
+      setSuccess(
+        `✅ Item "${itemForm.itemName}" created successfully! Asset ID: ${assetId}${ownerInfo}\n\nThe recipient needs to opt-in to this asset and then claim it.`,
+      )
       await loadGameInfo()
+      await loadUserAssets() // Refresh to show the new item
 
       setItemForm({
         recipient: '',
@@ -241,7 +284,29 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
       })
     } catch (err) {
       const error = err instanceof Error ? err : new Error(String(err))
-      setError(`Item creation failed: ${error.message}`)
+      const errorMsg = error.message || 'Unknown error'
+
+      // Provide more user-friendly error messages based on common smart contract errors
+      if (errorMsg.includes('assert failed')) {
+        if (errorMsg.includes('Only game master')) {
+          setError(`❌ Error: Only the game master can create items. Your account isn't authorized as the game master.`)
+        } else if (errorMsg.includes('Recipient must be registered')) {
+          setError(
+            `❌ Error: The recipient address must be a registered player in the game. Please ensure "${itemForm.recipient}" is registered in AlgoRealm.`,
+          )
+        } else {
+          setError(`❌ Item creation failed due to a contract assertion: ${errorMsg}
+
+          Common reasons for this error:
+          1. The recipient may not be registered in the game
+          2. You may not have Game Master privileges
+          3. The item parameters may be invalid`)
+        }
+      } else if (errorMsg.includes('rejected')) {
+        setError(`❌ Transaction was rejected. Please check your wallet and try again.`)
+      } else {
+        setError(`❌ Item creation failed: ${errorMsg}`)
+      }
     } finally {
       setLoading(false)
     }
@@ -305,6 +370,73 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
   const showTransactionQR = (txId: string) => {
     setQrModal({ isOpen: true, title: 'Transaction ID QR Code', value: `Transaction ID: ${txId}` })
   }
+
+  const viewItemDetails = async (asset: any) => {
+    if (!activeAccount) return
+
+    // Default ownership info message
+    let ownershipInfo = 'Loading ownership information...'
+
+    try {
+      // Try to get ownership info from the blockchain
+      ownershipInfo = await algoRealmHelper.getItemOwnershipInfo(BigInt(asset.id), activeAccount.address)
+    } catch (error) {
+      console.error('Error fetching ownership info:', error)
+      ownershipInfo = 'Could not retrieve ownership information'
+    }
+
+    // Open the modal with the item details
+    setItemDetailModal({
+      isOpen: true,
+      selectedItem: asset,
+      ownershipInfo,
+    })
+  }
+
+  /**
+   * Check if an address is registered as a player
+   */
+  const checkAddressRegistered = async (address: string): Promise<boolean> => {
+    try {
+      return await algoRealmHelper.isPlayerRegistered(address)
+    } catch (error) {
+      console.error('Error checking if player is registered:', error)
+      return false
+    }
+  }
+
+  // Check if a recipient is registered when the address changes
+  const checkRecipientRegistration = async (address: string) => {
+    if (!address) return
+
+    setCheckingRecipient(true)
+    try {
+      const isRegistered = await algoRealmHelper.isPlayerRegistered(address)
+      setRecipientRegistrationStatus((prev) => ({ ...prev, [address]: isRegistered }))
+
+      if (!isRegistered) {
+        // Show a warning but don't block the UI
+        setSuccess('')
+        setError(`Note: The address "${address}" is not registered in the game. Items can only be created for registered players.`)
+      } else {
+        // Clear any previous errors about registration
+        if (error && error.includes('not registered')) {
+          setError(null)
+        }
+      }
+    } catch (err) {
+      // Don't show errors from this check to the user, just log them
+      // eslint-disable-next-line no-console
+      console.log('Error checking recipient registration', err)
+    } finally {
+      setCheckingRecipient(false)
+    }
+  }
+
+  useEffect(() => {
+    // Check recipient registration status on recipient address change
+    checkRecipientRegistration(itemForm.recipient)
+  }, [itemForm.recipient])
 
   if (!activeAccount) {
     return (
@@ -466,7 +598,7 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
             {' '}
             {/* Enhanced background, padding, shadow, and border */}
             <h3 className="text-3xl font-extrabold text-white mb-6 text-center">🎮 Embark on Your Adventure! Register Now</h3>{' '}
-            {/* Centered, bolder, more engaging */}
+            {/* Centered, bolder, with shadow */}
             <div className="flex flex-col md:flex-row gap-6 items-center">
               {' '}
               {/* Improved layout for responsiveness */}
@@ -500,26 +632,62 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
               {/* Nested section styling */}
               <h4 className="text-2xl font-bold text-white mb-4 flex items-center">
                 <span className="mr-2">⚔️</span> Forge New Game Items
+                {isGameMaster && (
+                  <span className="ml-3 text-xs bg-green-600 px-2 py-1 rounded-full text-white">Game Master Authorized ✓</span>
+                )}
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                 {' '}
                 {/* Responsive grid */}
-                <div className="flex gap-2">
-                  <input
-                    type="text"
-                    placeholder="Recipient Address (default: your wallet)"
-                    className="input input-bordered flex-1 bg-gray-800 text-white border-gray-600 placeholder-gray-400"
-                    value={itemForm.recipient}
-                    onChange={(e) => setItemForm({ ...itemForm, recipient: e.target.value })}
-                  />
-                  <button
-                    type="button"
-                    className="btn btn-outline btn-sm"
-                    onClick={() => activeAccount && setItemForm({ ...itemForm, recipient: activeAccount.address })}
-                    title="Use my address"
-                  >
-                    🏠
-                  </button>
+                <div className="flex flex-col gap-1">
+                  <div className="flex gap-2">
+                    <input
+                      type="text"
+                      placeholder="Recipient Address (default: your wallet)"
+                      className={`input input-bordered flex-1 bg-gray-800 text-white border-${
+                        itemForm.recipient ? (isRegistered ? 'green-500' : 'red-500') : 'gray-600'
+                      } placeholder-gray-400`}
+                      value={itemForm.recipient}
+                      onChange={(e) => {
+                        const newRecipient = e.target.value
+                        setItemForm({ ...itemForm, recipient: newRecipient })
+                        // Check registration status when typing stops (debounce)
+                        if (newRecipient && newRecipient.length >= 58) {
+                          checkRecipientRegistration(newRecipient)
+                        }
+                      }}
+                    />
+                    <button
+                      type="button"
+                      className="btn btn-outline btn-sm"
+                      onClick={() => {
+                        if (activeAccount) {
+                          setItemForm({ ...itemForm, recipient: activeAccount.address })
+                          // We know current account is registered, so set it directly
+                          setRecipientRegistrationStatus((prev) => ({
+                            ...prev,
+                            [activeAccount.address]: isRegistered,
+                          }))
+                        }
+                      }}
+                      title="Use my address"
+                    >
+                      🏠
+                    </button>
+                  </div>
+                  {itemForm.recipient && (
+                    <div className="text-xs">
+                      {checkingRecipient && <p className="text-blue-400">Checking if address is registered...</p>}
+                      {!checkingRecipient && recipientRegistrationStatus[itemForm.recipient] === false && (
+                        <p className="text-red-400">
+                          ⚠️ Warning: This address is not registered in the game. Items can only be created for registered players.
+                        </p>
+                      )}
+                      {!checkingRecipient && recipientRegistrationStatus[itemForm.recipient] === true && (
+                        <p className="text-green-400">✓ This address is registered and can receive items.</p>
+                      )}
+                    </div>
+                  )}
                 </div>
                 <input
                   type="text"
@@ -682,6 +850,9 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
                           >
                             See transaction
                           </a>
+                          <button className="btn btn-xs btn-secondary btn-outline" onClick={() => viewItemDetails(item)}>
+                            📖 View Details
+                          </button>
                         </div>
                       </td>
                     </tr>
@@ -697,17 +868,47 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
           <div className="bg-gradient-to-r from-indigo-900 to-blue-900 rounded-xl p-8 mb-10 text-white shadow-xl border border-blue-700">
             {' '}
             {/* Enhanced background */}
-            <div className="flex justify-between items-center mb-6">
-              <h3 className="text-3xl font-extrabold flex items-center">
-                <span className="mr-3">🎒</span> My Personal Inventory
-              </h3>
-              <button
-                className="btn btn-outline btn-lg text-white border-white hover:bg-white hover:text-indigo-900 transition-all duration-300"
-                onClick={loadUserAssets}
-                disabled={loadingAssets}
-              >
-                {loadingAssets ? 'Loading...' : '🔄 Refresh My Items'}
-              </button>
+            <div className="flex flex-col space-y-4 mb-6">
+              <div className="flex justify-between items-center">
+                <h3 className="text-3xl font-extrabold flex items-center">
+                  <span className="mr-3">🎒</span> My Personal Inventory
+                </h3>
+                <button
+                  className="btn btn-outline btn-lg text-white border-white hover:bg-white hover:text-indigo-900 transition-all duration-300"
+                  onClick={loadUserAssets}
+                  disabled={loadingAssets}
+                >
+                  {loadingAssets ? 'Loading...' : '🔄 Refresh My Items'}
+                </button>
+              </div>
+
+              {/* New ownership filter controls */}
+              <div className="flex items-center space-x-2 bg-gray-800 p-3 rounded-lg">
+                <span className="text-gray-300 font-medium">Filter by: </span>
+                <button
+                  className="px-3 py-1 rounded-md bg-blue-600 text-white text-sm hover:bg-blue-700"
+                  onClick={() =>
+                    setUserAssets((prevAssets) =>
+                      [...prevAssets].sort((a, b) => {
+                        if (a.isOwner && !b.isOwner) return -1
+                        if (!a.isOwner && b.isOwner) return 1
+                        return 0
+                      }),
+                    )
+                  }
+                >
+                  Show Owned First
+                </button>
+                <button
+                  className="px-3 py-1 rounded-md bg-purple-600 text-white text-sm hover:bg-purple-700"
+                  onClick={() => setUserAssets((prevAssets) => prevAssets.filter((asset) => asset.isOwner))}
+                >
+                  Only My Items
+                </button>
+                <button className="px-3 py-1 rounded-md bg-gray-600 text-white text-sm hover:bg-gray-700" onClick={loadUserAssets}>
+                  Reset
+                </button>
+              </div>
             </div>
             {userAssets.length === 0 ? (
               <div className="text-center py-10 text-gray-400 bg-gray-900 bg-opacity-50 rounded-lg border border-gray-700">
@@ -720,6 +921,18 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
                   other players.
                 </p>
                 <p className="text-md mt-4 text-gray-500">Don't forget to **opt-in** to new assets if they aren't appearing!</p>
+                {/* Check if we have any items that are registered to the user but not in their wallet */}
+                {userAssets.some((asset) => asset.isOwner && !asset.isInWallet) && (
+                  <div className="mt-8 bg-indigo-900 bg-opacity-30 p-4 rounded-lg border border-indigo-700">
+                    <h4 className="text-indigo-400 font-bold text-lg">Items Registered To You</h4>
+                    <p className="text-sm text-indigo-200 mb-3">
+                      These items are registered with you as the owner but are not in your wallet yet.
+                    </p>
+                    <button className="btn btn-sm btn-outline btn-primary" onClick={loadUserAssets}>
+                      Refresh Registered Items
+                    </button>
+                  </div>
+                )}
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -728,7 +941,8 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
                 {userAssets.map((asset) => (
                   <div
                     key={asset.id}
-                    className="bg-gray-800 rounded-xl p-6 border border-gray-700 shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-2xl"
+                    onClick={() => viewItemDetails(asset)}
+                    className="bg-gray-800 rounded-xl p-6 border border-gray-700 shadow-lg transform transition duration-300 hover:scale-[1.02] hover:shadow-2xl cursor-pointer"
                   >
                     {' '}
                     {/* Enhanced card styling */}
@@ -738,6 +952,26 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
                       {/* More prominent ASA ID */}
                     </div>
                     <div className="space-y-2 text-base text-gray-200">
+                      {/* Ownership badge - new! */}
+                      {asset.isOwner && (
+                        <div className="bg-gradient-to-r from-purple-700 to-indigo-800 text-white px-3 py-1 rounded-md inline-block mb-2">
+                          <span className="flex items-center">
+                            <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                              <path
+                                fillRule="evenodd"
+                                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                clipRule="evenodd"
+                              />
+                            </svg>
+                            Registered Owner
+                          </span>
+                        </div>
+                      )}
+                      {asset.owner && !asset.isOwner && (
+                        <div className="bg-gray-700 text-gray-200 px-3 py-1 rounded-md inline-block mb-2">
+                          <span className="text-xs">Owned by: {asset.owner.substring(0, 8)}...</span>
+                        </div>
+                      )}
                       <div>
                         <span className="text-gray-400">Unit Name:</span>
                         <span className="ml-2 text-white font-medium">{asset.unitName || 'N/A'}</span>
@@ -745,6 +979,10 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
                       <div>
                         <span className="text-gray-400">Quantity:</span>
                         <span className="ml-2 text-green-400 font-bold">{asset.amount.toString()}</span>
+                        {/* Show item location if not in wallet */}
+                        {asset.isRegisteredToYou && !asset.isInWallet && (
+                          <span className="ml-2 text-yellow-500 text-xs">(Held by: {asset.currentHolder})</span>
+                        )}
                       </div>
                       {asset.creator && (
                         <div>
@@ -951,7 +1189,144 @@ export default function AlgoRealmGame({ onOpenWalletModal }: AlgoRealmGameProps)
             onClose={() => setQrModal({ isOpen: false, title: '', value: '' })}
           />
         )}
+
+        {/* Item Detail Modal (Newly Added) */}
+        {itemDetailModal.isOpen && (
+          <div className="fixed inset-0 flex items-center justify-center z-50">
+            <div
+              className="bg-black bg-opacity-80 absolute inset-0"
+              onClick={() => setItemDetailModal({ isOpen: false, selectedItem: null, ownershipInfo: '' })}
+            ></div>
+            <div className="bg-gray-900 rounded-lg shadow-lg max-w-lg w-full z-10 p-6">
+              <h3 className="text-2xl font-extrabold text-white mb-4 flex items-center">
+                <span className="mr-3">📖</span> Item Details
+              </h3>
+              <div className="text-gray-300 text-sm mb-4">
+                <p>
+                  <strong>Asset ID:</strong> <span className="font-mono">{itemDetailModal.selectedItem.assetId}</span>
+                </p>
+                <p>
+                  <strong>Item Name:</strong> {itemDetailModal.selectedItem.itemName}
+                </p>
+                <p>
+                  <strong>Type:</strong> {itemDetailModal.selectedItem.itemType}
+                </p>
+                <p>
+                  <strong>Rarity:</strong> {itemDetailModal.selectedItem.rarity}
+                </p>
+                <p>
+                  <strong>Recipient:</strong> {itemDetailModal.selectedItem.recipient}
+                </p>
+                <p>
+                  <strong>Transaction ID:</strong> {itemDetailModal.selectedItem.transactionId}
+                </p>
+                <p>
+                  <strong>Timestamp:</strong> {new Date(itemDetailModal.selectedItem.timestamp).toLocaleString()}
+                </p>
+              </div>
+              <div className="text-gray-400 text-xs mb-4">{itemDetailModal.ownershipInfo}</div>
+              <div className="flex flex-wrap gap-2">
+                <button
+                  className="btn btn-primary btn-sm"
+                  onClick={() => {
+                    navigator.clipboard.writeText(itemDetailModal.selectedItem.assetId)
+                    setSuccess(`Copied Asset ID: ${itemDetailModal.selectedItem.assetId}`)
+                  }}
+                >
+                  📋 Copy Asset ID
+                </button>
+                <button className="btn btn-success btn-sm" onClick={() => showTransactionQR(itemDetailModal.selectedItem.transactionId)}>
+                  🌐 QR Txn ID
+                </button>
+                <button className="btn btn-info btn-sm" onClick={() => showAssetQR(Number(itemDetailModal.selectedItem.assetId))}>
+                  📱 QR Asset ID
+                </button>
+                <button
+                  className="btn btn-accent btn-sm"
+                  onClick={() => setItemDetailModal({ isOpen: false, selectedItem: null, ownershipInfo: '' })}
+                >
+                  ✖️ Close
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
+      {/* Item Detail Modal */}
+      {itemDetailModal.isOpen && itemDetailModal.selectedItem && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-80">
+          <div className="bg-gray-800 rounded-lg shadow-xl p-6 w-full max-w-2xl mx-4 border border-indigo-800">
+            <div className="flex justify-between items-start mb-4">
+              <h3 className="text-2xl font-bold text-white">
+                {itemDetailModal.selectedItem.name || `Item #${itemDetailModal.selectedItem.id}`}
+              </h3>
+              <button
+                className="text-gray-400 hover:text-white"
+                onClick={() => setItemDetailModal({ isOpen: false, selectedItem: null, ownershipInfo: '' })}
+              >
+                ✖️
+              </button>
+            </div>
+
+            <div className="bg-gray-900 p-4 rounded-md mb-4">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <p className="text-gray-400 text-sm">Asset ID:</p>
+                  <p className="text-white font-mono">{itemDetailModal.selectedItem.id.toString()}</p>
+                </div>
+                <div>
+                  <p className="text-gray-400 text-sm">Unit Name:</p>
+                  <p className="text-white">{itemDetailModal.selectedItem.unitName || 'N/A'}</p>
+                </div>
+                <div>
+                  <p className="text-gray-400 text-sm">Amount:</p>
+                  <p className="text-green-400">{itemDetailModal.selectedItem.amount?.toString() || '0'}</p>
+                </div>
+                <div>
+                  <p className="text-gray-400 text-sm">Creator:</p>
+                  <p className="text-white font-mono text-xs truncate">{itemDetailModal.selectedItem.creator || 'N/A'}</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Ownership Information Section */}
+            <div className="bg-indigo-900 bg-opacity-30 rounded-md p-4 mb-4">
+              <h4 className="text-lg text-indigo-300 font-bold mb-2">Ownership Information</h4>
+              {itemDetailModal.selectedItem.isOwner ? (
+                <div className="bg-green-900 bg-opacity-50 p-2 rounded text-green-300 mb-2">
+                  ✓ You are the registered owner of this item
+                </div>
+              ) : itemDetailModal.selectedItem.owner ? (
+                <div className="bg-yellow-900 bg-opacity-50 p-2 rounded text-yellow-300 mb-2">
+                  This item is registered to another address: {itemDetailModal.selectedItem.owner.substring(0, 10)}...
+                </div>
+              ) : (
+                <div className="bg-gray-700 bg-opacity-50 p-2 rounded text-gray-300 mb-2">No ownership information available</div>
+              )}
+              <div className="text-xs text-gray-300 mt-2">{itemDetailModal.ownershipInfo}</div>
+            </div>
+
+            {/* Actions */}
+            <div className="flex justify-end gap-2">
+              <button
+                className="btn btn-primary btn-sm"
+                onClick={() => {
+                  navigator.clipboard.writeText(itemDetailModal.selectedItem.id.toString())
+                  setSuccess(`Copied Asset ID: ${itemDetailModal.selectedItem.id}`)
+                }}
+              >
+                📋 Copy ID
+              </button>
+              <button
+                className="btn btn-accent btn-sm"
+                onClick={() => setItemDetailModal({ isOpen: false, selectedItem: null, ownershipInfo: '' })}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

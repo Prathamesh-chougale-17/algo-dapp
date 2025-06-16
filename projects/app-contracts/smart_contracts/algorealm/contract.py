@@ -92,6 +92,10 @@ class AlgoRealmGameManager(ARC4Contract):
 
         # Create ASA for the item (simplified without complex metadata struct)
         item_unit_name = String("ALGITEM")
+        # Include owner information in note field
+        owner_info = op.concat(Bytes(b"OWNER:"), recipient.bytes)
+        note_data = op.concat(op.concat(item_name.bytes, rarity.bytes), owner_info)
+        
         item_asa = itxn.AssetConfig(
             asset_name=item_name,
             unit_name=item_unit_name,
@@ -103,8 +107,8 @@ class AlgoRealmGameManager(ARC4Contract):
             freeze=Global.current_application_address,
             clawback=Global.current_application_address,
             fee=Global.min_txn_fee,  # Use minimum transaction fee
-            # Store basic item info in note field
-            note=op.concat(item_name.bytes, rarity.bytes),
+            # Store basic item info and owner in note field
+            note=note_data,
         ).submit()
 
         # Note: Item is created but stays with the contract
@@ -150,8 +154,16 @@ class AlgoRealmGameManager(ARC4Contract):
         assert original_name_response[0], "Cannot get original item name"
 
         # Create NEW ASA with same properties but marked as recovered
-        recovered_name = String("RECOVERED_ITEM")
-        recovery_note = op.concat(Bytes(b"RECOVERED_ITEM_"), recovery_quest_proof)
+        # Use a simple string for the asset name to avoid type issues
+        recovered_name = String("Recovered Item")
+        
+        # Include owner information in note field
+        owner_info = op.concat(Bytes(b"OWNER:"), new_recipient.bytes)
+        recovery_note = op.concat(
+            op.concat(Bytes(b"RECOVERED_ITEM_"), recovery_quest_proof),
+            owner_info
+        )
+        
         recovered_item_asa = itxn.AssetConfig(
             asset_name=recovered_name,
             unit_name=String("ALGRECOV"),
@@ -164,6 +176,7 @@ class AlgoRealmGameManager(ARC4Contract):
             clawback=Global.current_application_address,
             fee=Global.min_txn_fee,  # Use minimum transaction fee
             note=recovery_note,
+            
         ).submit()
 
         # Note: Recovered item stays with the contract
@@ -188,7 +201,12 @@ class AlgoRealmGameManager(ARC4Contract):
 
         # Create seasonal item based on event
         seasonal_item_name = String("SEASONAL_ITEM")
-        seasonal_note = op.concat(Bytes(b"SEASONAL_"), participation_proof)
+        # Include owner information in note field
+        owner_info = op.concat(Bytes(b"OWNER:"), recipient.bytes)
+        seasonal_note = op.concat(
+            op.concat(Bytes(b"SEASONAL_"), participation_proof),
+            owner_info
+        )
 
         seasonal_asa = itxn.AssetConfig(
             asset_name=seasonal_item_name,
@@ -223,6 +241,9 @@ class AlgoRealmGameManager(ARC4Contract):
 
         # Create crafted item based on recipe
         crafted_item_name = String("CRAFTED_ITEM")
+        # Include owner information in note field
+        owner_info = op.concat(Bytes(b"OWNER:"), Txn.sender.bytes)
+        crafted_note = op.concat(Bytes(b"CRAFTED_ITEM"), owner_info)
 
         crafted_asa = itxn.AssetConfig(
             asset_name=crafted_item_name,
@@ -232,7 +253,7 @@ class AlgoRealmGameManager(ARC4Contract):
             default_frozen=False,
             manager=Global.current_application_address,
             fee=Global.min_txn_fee,  # Use minimum transaction fee
-            note=Bytes(b"CRAFTED_ITEM"),
+            note=crafted_note,
         ).submit()
 
         # Note: Crafted item stays with the contract
@@ -300,3 +321,37 @@ class AlgoRealmGameManager(ARC4Contract):
         """Get player's current recovery count and max allowed recoveries"""
         assert self.is_registered[player], "Player not registered"
         return self.player_recovery_count[player], self.max_recovery_per_item.value
+
+    @abimethod(readonly=True)
+    def get_item_ownership_info(self, item_id: Asset) -> String:
+        """
+        Get information about the item including its ownership
+        Returns a string description of the item's ownership info
+        
+        The owner information is embedded in the note field with format:
+        [other data]OWNER:[address]
+        
+        External systems can parse this to extract specific owner information
+        """
+        # Since we can't directly query the note field in a consistent way,
+        # we return a simple info string and let external systems handle parsing
+        name_response = op.AssetParamsGet.asset_name(item_id)
+        
+        if name_response[0]:
+            return String("Item exists and ownership info is stored in the ASA note field")
+        else:
+            return String("Item not found")
+        
+    @abimethod(readonly=True)
+    def check_item_exists(self, item_id: Asset) -> Bool:
+        """
+        Verify if the item exists
+        Returns true if the asset exists
+        """
+        # Asset exists check
+        exists_response = op.AssetParamsGet.asset_name(item_id)
+        # The exists_response[0] is already a boolean
+        if exists_response[0]:
+            return Bool(True)
+        else:
+            return Bool(False)

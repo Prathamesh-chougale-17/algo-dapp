@@ -354,6 +354,46 @@ Current balance: ${currentBalance} ALGO, Required: ${minBalance} ALGO`)
               assetInfo.params.creator === deploymentInfo.app_address ||
               ['ALGITEM', 'ALGRECOV', 'ALGSEASN', 'ALGCRAFT'].includes(assetInfo.params.unitName || '')
 
+            // Extract ownership information from the metadata fields
+            let owner = null
+            let isOwner = false
+            let ownerAddress = null
+
+            // Check for ownership in the URL field, which we can use to store metadata
+            if (assetInfo.params.url) {
+              const urlValue = assetInfo.params.url
+              // Check if this URL might contain ownership info
+              if (urlValue.includes('OWNER:')) {
+                try {
+                  const ownerMatch = urlValue.match(/OWNER:([a-zA-Z0-9]+)/)
+                  if (ownerMatch && ownerMatch[1]) {
+                    ownerAddress = ownerMatch[1]
+                    isOwner = ownerAddress === accountAddress
+                    owner = ownerAddress
+                  }
+                } catch (e) {
+                  // Ignore parsing errors
+                }
+              }
+            }
+
+            // Also check the name field, which might contain ownership info in some items
+            if (!owner && assetInfo.params.name) {
+              const nameValue = assetInfo.params.name
+              if (nameValue.includes('OWNER:')) {
+                try {
+                  const ownerMatch = nameValue.match(/OWNER:([a-zA-Z0-9]+)/)
+                  if (ownerMatch && ownerMatch[1]) {
+                    ownerAddress = ownerMatch[1]
+                    isOwner = ownerAddress === accountAddress
+                    owner = ownerAddress
+                  }
+                } catch (e) {
+                  // Ignore parsing errors
+                }
+              }
+            }
+
             return {
               id: assetId,
               assetId: assetId,
@@ -369,7 +409,11 @@ Current balance: ${currentBalance} ALGO, Required: ${minBalance} ALGO`)
               clawback: assetInfo.params.clawback,
               frozen: asset.isFrozen || false,
               url: assetInfo.params.url || '',
+              // We can't access note directly, but we can check the url for metadata
               isGameItem: isGameItem,
+              owner: owner,
+              isOwner: isOwner,
+              ownerAddress: ownerAddress,
             }
           } catch (error) {
             return {
@@ -388,9 +432,68 @@ Current balance: ${currentBalance} ALGO, Required: ${minBalance} ALGO`)
       // Filter to only show game items and assets with amount > 0
       const gameItems = detailedAssets.filter((asset) => asset.amount > 0 && asset.isGameItem)
 
+      // We can't easily fetch assets by creator with the standard API
+      // So for now, we'll just return what the user already owns
+
+      // Mark owned assets with the ownership information
+      return gameItems.map((asset) => {
+        // Add a property that indicates this item is in the user's wallet
+        return {
+          ...asset,
+          isInWallet: true,
+        }
+      })
+
       return gameItems
     } catch (error) {
       throw new Error(`Could not load user assets: ${error instanceof Error ? error.message : 'Unknown error'}`)
+    }
+  }
+
+  /**
+   * Check if an item exists and get its ownership info
+   */
+  async getItemOwnershipInfo(itemId: bigint, sender: string): Promise<string> {
+    // Since the smart contract method doesn't actually exist yet in the client,
+    // we'll provide a mock implementation that returns ownership information
+    try {
+      // Try to get the asset info from algod directly
+      if (!this.algorand) {
+        throw new Error('Algorand client not initialized')
+      }
+
+      const assetInfo = await this.algorand.client.algod.getAssetByID(Number(itemId)).do()
+
+      // Check for ownership info in the URL or unit name
+      const hasOwnershipInfo = assetInfo.params.url && assetInfo.params.url.includes('OWNER:')
+
+      if (hasOwnershipInfo) {
+        return `Item has embedded ownership information. Registered to an Algorand address.`
+      } else {
+        return `Item appears to be a standard asset without ownership metadata. This may be a v1 item before ownership tracking was added.`
+      }
+    } catch (error) {
+      console.error('Failed to get item ownership info:', error)
+      return 'Ownership information unavailable'
+    }
+  }
+
+  /**
+   * Check if an item exists in the blockchain
+   */
+  async checkItemExists(itemId: bigint, sender: string): Promise<boolean> {
+    // Since the smart contract method doesn't exist yet in the client,
+    // we'll check directly with algod
+    try {
+      if (!this.algorand) {
+        throw new Error('Algorand client not initialized')
+      }
+
+      await this.algorand.client.algod.getAssetByID(Number(itemId)).do()
+      return true
+    } catch (error) {
+      console.error('Failed to check if item exists:', error)
+      return false
     }
   }
 }
