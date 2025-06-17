@@ -2,6 +2,81 @@
 
 This starter full stack project has been generated using AlgoKit. See below for default getting started instructions.
 
+
+### Project
+
+![Project Screenshot 1](screenshots/one.jpeg)
+![Project Screenshot 2](screenshots/two.jpeg)
+![Project Screenshot 2](screenshots/three.jpeg)
+![Project Screenshot 2](screenshots/four.jpeg)
+![Project Screenshot 2](screenshots/five.jpeg)
+![Project Screenshot 2](screenshots/six.jpeg)
+![Project Screenshot 2](screenshots/seven.jpeg)
+![Project Screenshot 2](screenshots/eight.jpeg)
+![Project Screenshot 2](screenshots/nine.jpeg)
+![Project Screenshot 2](screenshots/ten.jpeg)
+![Project Screenshot 2](screenshots/eleven.jpeg)
+# 🎮 Recoverable NFTs for Game Items - AlgoRealm Game Manager
+
+> 🥉 3rd Prize Winner — Algorand Live-Hack
+> 
+> A secure, identity-linked NFT recovery system for gamers built on Algorand using AlgoKit and PyTEAL.
+
+---
+
+## 🚀 Overview
+
+**AlgoRealm Game Manager** solves a critical problem in Web3 gaming: **lost NFTs due to wallet loss.**
+
+We built a smart contract system that lets players **recover lost NFTs** by linking game assets to an **App ID (identity)** instead of just a wallet. If a player loses access to their wallet, they can still **verify their identity** and reclaim their NFTs securely.
+
+---
+
+## 🎯 Key Features
+
+- ✅ NFT minting on in-game item purchases  
+- 🔁 Recover lost NFTs via identity + quest proof  
+- 🛠️ Craft new items by combining existing ones  
+- 🧙‍♂️ Game Master can issue seasonal items  
+- 🔐 On-chain player registration and tracking  
+- 📦 IPFS / ARC-69 support for NFT metadata  
+- 🔒 Security: Multisig roles & identity-linked recovery
+
+---
+
+## 🧠 Problem It Solves
+
+> In Web3 gaming, users often lose access to rare NFTs if they lose their wallet or private key.  
+> AlgoRealm fixes this by allowing NFTs to be recovered using App ID and player authentication, ensuring **true digital ownership**.
+
+---
+
+## 🧩 Tech Stack
+
+| Layer              | Tech                                |
+|--------------------|--------------------------------------|
+| 🖼 Frontend         | React.js + Tailwind CSS              |
+| 🔒 Smart Contracts  | PyTEAL (via AlgoKit)                 |
+| 🔗 Blockchain       | Algorand                             |
+| 🆔 Identity Layer   | App ID (custom) + future DID-ready   |
+| 🎨 NFT Standards    | ARC3, ARC69                          |
+| 📂 Storage          | IPFS                                 |
+
+---
+
+## ⚙️ Smart Contract Highlights
+
+- Written in **ARC4 standard** using `algopy`
+- Uses local/global state for player/item tracking
+- Implements:
+  - `register_player()`
+  - `create_game_item()`
+  - `recover_lost_item()`
+  - `seasonal_event_reissue()`
+  - `craft_items()`
+  - `claim_item()`
+  - and more...
+
 ## Setup
 
 ### Initial setup
