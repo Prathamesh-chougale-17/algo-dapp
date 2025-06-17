@@ -5,8 +5,8 @@ This starter full stack project has been generated using AlgoKit. See below for 
 
 ### Screenshots
 
-![Project Screenshot 1](screenshots/screenshot1.png)
-![Project Screenshot 2](screenshots/screenshot2.png)
+![Project Screenshot 1](screenshots/one.jpeg)
+![Project Screenshot 2](screenshots/two.jpeg)
 
 # 🎮 Recoverable NFTs for Game Items - AlgoRealm Game Manager
 
