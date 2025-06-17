@@ -8,7 +8,7 @@ This starter full stack project has been generated using AlgoKit. See below for 
 ![Project Screenshot 1](screenshots/screenshot1.png)
 ![Project Screenshot 2](screenshots/screenshot2.png)
 
-# 🎮 Recoverable NFTs for Game Items - AlgoRealm
+# 🎮 Recoverable NFTs for Game Items - AlgoRealm Game Manager
 
 > 🥉 3rd Prize Winner — Algorand Live-Hack
 > 
@@ -18,7 +18,7 @@ This starter full stack project has been generated using AlgoKit. See below for 
 
 ## 🚀 Overview
 
-**AlgoRealm** solves a critical problem in Web3 gaming: **lost NFTs due to wallet loss.**
+**AlgoRealm Game Manager** solves a critical problem in Web3 gaming: **lost NFTs due to wallet loss.**
 
 We built a smart contract system that lets players **recover lost NFTs** by linking game assets to an **App ID (identity)** instead of just a wallet. If a player loses access to their wallet, they can still **verify their identity** and reclaim their NFTs securely.
 
