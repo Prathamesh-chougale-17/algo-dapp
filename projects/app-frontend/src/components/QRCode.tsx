@@ -1,11 +1,13 @@
 import QRCodeLib from 'qrcode'
 import { useEffect, useRef } from 'react'
+
 interface QRCodeProps {
   value: string
   size?: number
   title?: string
   className?: string
 }
+
 export function QRCode({ value, size = 200, title, className = '' }: QRCodeProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
@@ -23,7 +25,8 @@ export function QRCode({ value, size = 200, title, className = '' }: QRCodeProps
       })
     }
   }, [value, size])
-if (!value) {
+
+  if (!value) {
     return (
       <div className={`flex items-center justify-center bg-gray-100 ${className}`} style={{ width: size, height: size }}>
         <span className="text-gray-500 text-sm">No data</span>
@@ -73,7 +76,8 @@ export function QRModal({ isOpen, onClose, title, value }: QRModalProps) {
       link.click()
     }
   }
- if (!isOpen) return null
+
+  if (!isOpen) return null
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={onClose}>
